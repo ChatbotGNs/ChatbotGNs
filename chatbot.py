@@ -299,6 +299,7 @@ class Chatbot:
         cmd = ["ollama", "run", model]
         try:
             proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=timeout)
+            # TODO: Add loading indicator for long-running processes (optional, can be removed if not desired)
             if proc.returncode == 0:
                 return proc.stdout.strip()
             err = proc.stderr.strip() or proc.stdout.strip()

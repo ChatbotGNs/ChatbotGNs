@@ -27,4 +27,4 @@ pip install -r requirements.txt
 echo "Descargando modelo en Ollama..."
 ollama pull llama2:7b-chat
 
-echo "🚀 ¡Todo listo! Para iniciar el bot ejecuta: source venv/bin/activate && python main.py"
+echo "¡Todo listo! Para iniciar el bot ejecuta: source venv/bin/activate && python main.py"
