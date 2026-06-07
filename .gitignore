@@ -12,4 +12,7 @@ __pycache__/
 .flies
 .chainlit
 
-.json
+customers.json
+tickets.json
+comments.json
+categories.json
