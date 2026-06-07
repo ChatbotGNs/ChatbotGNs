@@ -660,17 +660,21 @@ class Chatbot:
         # Tienen prioridad absoluta y rompen cualquier flujo activo.
         # ==========================================
         if low_text in menu_keywords:
-            self.logger.warning(f"[FLUJO CANCELADO] El usuario canceló el flujo: {self.current_flow.get('action')}")
-            self.current_flow = None # Destruimos el flujo
-            # Devolvemos el texto directamente:
-            return (
-                "Operación cancelada. ¿Qué te gustaría hacer ahora?\n\n"
-                "Selecciona una opción o escribela:\n"
-                "1) Reportar Falla\n"
-                "2) Consultar Plan\n"
-                "3) Diagnostico Rapido\n"
-                "4) Hablar con Técnico\n"
-            )
+            
+            if(self.current_flow != None):
+                self.logger.warning(f"[FLUJO CANCELADO] El usuario canceló el flujo: {self.current_flow.get('action')}")
+                self.current_flow = None # Destruimos el flujo
+                # Devolvemos el texto directamente:
+                return (
+                    "Operación cancelada. ¿Qué te gustaría hacer ahora?\n\n"
+                    "Selecciona una opción o escribela:\n"
+                    "1) Reportar Falla\n"
+                    "2) Consultar Plan\n"
+                    "3) Diagnostico Rapido\n"
+                    "4) Hablar con Técnico\n"
+                )
+            else:
+                return self._show_menu_action()
 
         if low_text in palabras_opcion1:
             self.current_flow = {"action": "report_issue", "step": "get_customer_id"}
