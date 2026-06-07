@@ -24,9 +24,6 @@ class Chatbot:
 
     def __init__(self, temperature: float = 0.2, model: str = "gpt-3.5-turbo"):
         load_dotenv()
-        # We force fallback mode so the code runs without langchain/OpenAI.
-        # If you later want to enable a real LLM, set OPENAI_API_KEY in .env
-        # and implement dynamic imports/initialization.
         api_key = os.getenv("OPENAI_API_KEY")
 
         self.use_llm = False
@@ -76,14 +73,34 @@ class Chatbot:
             try:
                 with open(path, "r", encoding="utf-8") as f:
                     return json.load(f)
-            except Exception:
+            except Exception as e:
+                # Registrar detalle del error para facilitar depuración si el JSON es inválido o no se puede leer
+                try:
+                    self.logger.error(json.dumps({"type": "local_data_load_error", "path": path, "error": str(e)} , ensure_ascii=False))
+                except Exception:
+                    pass
                 return []
 
         self.tickets = _load(self.tickets_path)
         self.customers = _load(self.customers_path)
+        # Si no se cargaron customers y existe el archivo en otra ubicación posible, intentar la ruta relativa al módulo
+        if not self.customers:
+            alt_path = os.path.join(os.path.dirname(__file__), "..", "customers.json")
+            alt_path = os.path.abspath(alt_path)
+            if os.path.exists(alt_path) and alt_path != self.customers_path:
+                try:
+                    with open(alt_path, "r", encoding="utf-8") as f:
+                        self.customers = json.load(f)
+                    self.logger.info(json.dumps({"type": "local_data_alt_load", "path": alt_path, "customers_loaded": len(self.customers)}, ensure_ascii=False))
+                except Exception as e:
+                    try:
+                        self.logger.error(json.dumps({"type": "local_data_alt_load_error", "path": alt_path, "error": str(e)}, ensure_ascii=False))
+                    except Exception:
+                        pass
+
         self.comments = _load(self.comments_path)
         self.categories = _load(self.categories_path)
-        self.logger.info(json.dumps({"type": "local_data_load", "tickets": len(self.tickets), "customers": len(self.customers), "comments": len(self.comments), "categories": len(self.categories)}))
+        self.logger.info(json.dumps({"type": "local_data_load", "tickets": len(self.tickets), "customers": len(self.customers), "comments": len(self.comments), "categories": len(self.categories)}, ensure_ascii=False))
 
     def _find_ticket(self, ticket_id: str):
         for t in self.tickets:
@@ -93,30 +110,57 @@ class Chatbot:
         return None
 
     def _get_customer_segment(self, customer_id: str):
+        # Buscar varios nombres de campo comunes para el id del cliente
         for c in self.customers:
-            if str(c.get("id", c.get("customer_id", ""))) == str(customer_id):
-                # posibles campos: segment, category, type
-                return c.get("segment") or c.get("category") or c.get("type") or "unknown"
+            # posibles claves que representan el id del cliente
+            candidates = [c.get("id"), c.get("customer_id"), c.get("idCustomer"), c.get("customerId"), c.get("id_customer")]
+            for v in candidates:
+                if v is None:
+                    continue
+                try:
+                    if str(v) == str(customer_id):
+                        # posibles campos que indican segmento/ tipo
+                        return (
+                            c.get("segment")
+                            or c.get("segmento")
+                            or c.get("category")
+                            or c.get("type")
+                            or c.get("group")
+                            or "unknown"
+                        )
+                except Exception:
+                    continue
         return "unknown"
 
     def _diagnostic_flow(self, message: str) -> dict:
-        """Flujo de diagnóstico simplificado que devuelve un dict con steps y severity."""
-        low = message.lower()
+        """Flujo de diagnóstico simplificado que devuelve un dict con steps y severity.
+
+        Devuelve solo pasos en lenguaje natural (sin adjuntar comandos técnicos).
+        """
+        low = (message or "").lower()
         steps = []
         severity = "low"
 
-        if any(k in low for k in ["no conecta", "no funciona", "corte", "sin servicio"]):
+        if any(k in low for k in ["intermit", "intermitencia", "intermitente", "intermitir"]):
             steps = [
-                "1) Reinicia el módem y el router (espera 30s).",
-                "2) Verifica que los cables estén conectados correctamente.",
-                "3) Consulta el estado del servicio en tu área.",
+                "Reproducir y anotar exactamente cuándo ocurre (hora y acción).",
+                "¿Puedo intentar revisar si hay errores registrados en el sistema (si tengo acceso)? Responde 'sí' para que lo intente o 'asistencia' para que lo haga un técnico.",
+                "Comprobar si el problema ocurre en varios dispositivos (¿ocurre solo en un equipo o en varios?).",
+                "Verificar si el servicio está sobrecargado o con problemas de recursos; si quieres que prepare un informe para un técnico, responde 'asistencia'.",
+            ]
+            severity = "medium"
+        elif any(k in low for k in ["no conecta", "no funciona", "corte", "sin servicio"]):
+            steps = [
+                "Reinicia el módem y el router (espera 30s).",
+                "Verifica que los cables estén conectados correctamente.",
+                "Consulta el estado del servicio en tu área o con tu ISP.",
             ]
             severity = "high" if "corte" in low or "no funciona" in low else "medium"
         elif any(k in low for k in ["lentitud", "baja velocidad", "lag", "latencia"]):
             steps = [
-                "1) Ejecuta un speedtest desde un equipo conectado por cable.",
-                "2) Reinicia los equipos de red si hay muchos dispositivos conectados.",
-                "3) Reduce dispositivos activos y vuelve a medir.",
+                "Ejecuta un test de velocidad desde un equipo conectado por cable.",
+                "Reinicia los equipos de red y vuelve a medir.",
+                "Reduce dispositivos activos y comprueba si mejora la velocidad.",
             ]
             severity = "medium"
         else:
@@ -211,6 +255,15 @@ class Chatbot:
         if not self.partner_base:
             raise EnvironmentError("PARTNER_API_BASE no configurada en .env")
 
+        # Validate payload to avoid predictable 400 responses from partner
+        if not payload.get("idCustomer") or int(payload.get("idCustomer") or 0) == 0:
+            # Log and raise a clear error for the caller to handle and inform the user
+            try:
+                self.logger.info(json.dumps({"type": "escalation_validation_failed", "reason": "idCustomer_missing_or_zero", "payload": payload}, ensure_ascii=False))
+            except Exception:
+                pass
+            raise ValueError("Payload inválido: 'idCustomer' es requerido y debe ser distinto de 0")
+
         url = f"{self.partner_base.rstrip('/')}/tickets"
         headers = {"Content-Type": "application/json"}
         if self.partner_key:
@@ -241,7 +294,7 @@ class Chatbot:
         """
         model = os.getenv("OLLAMA_MODEL")
         if not model:
-            return "No OLLAMA_MODEL configured"
+            return "No OLLAMA_MODEL configurado"
 
         cmd = ["ollama", "run", model]
         try:
@@ -249,9 +302,9 @@ class Chatbot:
             if proc.returncode == 0:
                 return proc.stdout.strip()
             err = proc.stderr.strip() or proc.stdout.strip()
-            return f"Ollama error: {err}"
+            return f"Error de Ollama: {err}"
         except FileNotFoundError:
-            return "Ollama CLI no encontrada. Instala ollama o ajusta OLLAMA_MODEL."
+            return "CLI de Ollama no encontrada. Instala ollama o ajusta OLLAMA_MODEL."
         except Exception as e:
             return f"Error ejecutando Ollama: {e}"
 
@@ -347,23 +400,122 @@ class Chatbot:
             self.logger.error(json.dumps({"type": "partner_get_error", "url": url, "error": str(e)}, ensure_ascii=False))
             raise
 
+    def _find_customer_by_id(self, customer_id: str):
+        """Busca un registro de customer por varias claves comunes y devuelve el dict completo o None."""
+        if not self.customers:
+            return None
+        for c in self.customers:
+            for key in ("idCustomer", "id", "customer_id", "customerId", "id_customer"):
+                v = c.get(key)
+                if v is None:
+                    continue
+                try:
+                    if str(v) == str(customer_id):
+                        return c
+                except Exception:
+                    continue
+        return None
+
     def ask(self, message: str) -> str:
         """Send a message to the chatbot and return the response. También decide si escalar y hace POST si es necesario."""
         text = message.strip()
 
-        # Manejo de menú simple
-        if text.lower() in ("menu", "help", "inicio"):
-            menu = (
-                "Menú principal:\n"
-                "1. Consultar Estado de mi Ticket (envía: ticket <id>)\n"
-                "2. Reportar Falla / Diagnóstico IA (envía: reportar <descripción>)\n"
-                "3. Gestión de Cuenta (envía: cuenta <id_cliente>)\n"
-                "4. Hablar con un Técnico (envía: escalar <id_cliente> o escalar ahora)\n"
-            )
-            return menu
+        # Helper corto: detectar que el usuario indica que no puede o quiere ayuda
+        def _user_needs_assistance(txt: str) -> bool:
+            low = (txt or "").lower()
+            triggers = [
+                "no puedo", "no sé", "no se", "no tengo", "no puedo hacerlo", "no entiendo",
+                "necesito ayuda", "me ayudas", "ayuda", "no tengo acceso", "no tengo permisos",
+                "no quiero", "no puedo seguir"
+            ]
+            return any(t in low for t in triggers)
 
-        # Short menu choices: show automated options for 1..5
-        if text in ("1", "2", "3", "4", "5"):
+        # Responder 'menu' localmente (no consultar KB)
+        if text.lower() in ("menu", "help", "inicio"):
+            return (
+                "Hola — ¿qué necesitas?\n"
+                "1) Estado de ticket — 'ticket <id>'\n"
+                "2) Diagnóstico rápido — 'diagnosticar <descripción>'\n"
+                "3) Información de cuenta — 'cuenta <id_cliente>'\n"
+                "4) Pedir asistencia remota — 'asistencia <id_cliente>'\n\n"
+                "Responde con el número o el comando. Escribe 'más' para detalles."
+            )
+
+        # --- Progresión y descomposición: manejo de flujos paso-a-paso ---
+        # Si estamos en un flujo y el usuario escribe algo que indica imposibilidad, ofrecer asistencia
+        if getattr(self, 'pending_action', None) and self.pending_action.get('action') == 'step_flow':
+            # si el usuario indica que no puede seguir, ofrecer asistencia técnica
+            if _user_needs_assistance(text):
+                return "Entiendo. Si prefieres que un técnico lo revise, responde 'asistencia' y yo prepararé la solicitud de ayuda remota. Si quieres intentar continuar escribe 'siguiente'."
+
+        # Avanzar en un flujo activo (ej. 'siguiente', 'mas', 'más')
+        if text.lower() in ("siguiente", "next", "mas", "más"):
+            if self.pending_action and self.pending_action.get("action") == "step_flow":
+                steps = self.pending_action["steps"]
+                current_stage = int(self.pending_action.get("stage", 0))
+                # Si hay un siguiente paso
+                if current_stage + 1 < len(steps):
+                    self.pending_action["stage"] = current_stage + 1
+                    next_idx = self.pending_action["stage"]
+                    return f"Paso {next_idx+1}/{len(steps)}: {steps[next_idx]}\n\nResponde 'siguiente' para continuar o 'todos' para ver la lista completa."
+                else:
+                    # No hay más pasos
+                    # Si el flujo indicaba severidad alta, sugerir asistencia proactiva
+                    sev = self.pending_action.get('severity')
+                    self.pending_action = None
+                    if sev == 'high':
+                        return f"Has completado los {len(steps)} pasos. Dado que este caso parece técnico, ¿quieres solicitar asistencia remota ahora? Responde 'asistencia' para solicitar ayuda o 'no' para finalizar."
+                    return f"Has completado los {len(steps)} paso(s). ¿Necesitas que prepare un informe para pedir asistencia remota? Responde 'sí' o 'no'."
+            else:
+                return "No hay un flujo activo. Escribe 'diagnosticar <descripción>' para iniciar un diagnóstico rápido."
+
+        # Eliminar la opción de 'mostrar comandos' para mantener el lenguaje centrado en el cliente
+        # (antes se ofrecían comandos técnicos; ahora no se muestran al cliente final)
+
+        # Iniciar diagnóstico: 'diagnosticar <descripción>' o detectar palabras clave como 'intermitencia'
+        low = text.lower()
+        if low.startswith("diagnosticar") or any(k in low for k in ("intermiten", "intermitencia", "no conecta", "corte", "no funciona")):
+            # extraer descripción (si la hubo)
+            desc = text[len("diagnosticar"):].strip() if low.startswith("diagnosticar") else text
+            df = self._diagnostic_flow(desc)
+            steps = df.get("steps", ["Proporciona más detalles: ¿corte, lentitud, intermitencia, hardware?"])
+            severity = df.get("severity")
+            # Guardar estado para la progresión (sin comandos técnicos)
+            self.pending_action = {"action": "step_flow", "steps": steps, "stage": 0, "severity": severity}
+
+            # Si la severidad indica caso técnico, sugerir asistencia desde el inicio
+            if severity == 'high':
+                return (
+                    "Detecto un problema que parece técnico y de alta prioridad. ¿Quieres que solicite asistencia remota de inmediato?\n"
+                    "Responde 'asistencia' para que prepare la solicitud o 'siguiente' si prefieres intentar los pasos tú mismo."
+                )
+
+            # Preparar la respuesta inicial dependiendo del primer paso
+            first = steps[0].strip()
+            # Si el primer paso es una pregunta, pedir solo la información y esperar la respuesta
+            if first.endswith("?") or first.lower().startswith("proporciona") or "¿" in first:
+                return (
+                    "Detecto un posible problema. Antes de continuar necesito más información:\n"
+                    f"{first}\n\n"
+                    "Por favor responde con los detalles solicitados. Si prefieres que lo revise un técnico, responde 'asistencia'."
+                )
+
+            # Si hay múltiples pasos, mostrar el primero y ofrecer avanzar
+            if len(steps) > 1:
+                return (
+                    f"Detecto un posible problema. Te propongo {len(steps)} pasos rápidos.\n\n"
+                    f"Paso 1/{len(steps)}: {first}\n\n"
+                    "Responde 'siguiente' para continuar, 'todos' para verlos todos o 'asistencia' para solicitar ayuda técnica."
+                )
+
+            # Si solo hay un paso que no es pregunta, mostrar y ofrecer acciones
+            return (
+                f"Detecto un posible problema.\n\n{first}\n\n"
+                "Si prefieres, puedo preparar un resumen para que tu técnico lo revise. Responde 'asistencia'."
+            )
+
+        # Short menu choices: show automated options for 1..4
+        if text in ("1", "2", "3", "4"):
             if text == "1":
                 return (
                     "Opción 1 — Estado de mi Ticket:\n"
@@ -384,10 +536,10 @@ class Chatbot:
                 )
             if text == "3":
                 return (
-                    "Opción 3 — Gestión de Cuenta:\n"
-                    "- cuenta <id_cliente>: Muestra segmento y acciones disponibles.\n"
-                    "- ejemplo: 'cuenta 123456'\n"
-                    "(Automatizado: consulta de datos y recomendaciones sin contactar a soporte.)"
+                    "Opción 3 — Información de Cuenta:\n"
+                    "- cuenta <id_cliente>: Muestra segmento e información de la cuenta y acciones disponibles.\n"
+                     "- ejemplo: 'cuenta 123456'\n"
+                     "(Automatizado: consulta de datos y recomendaciones sin contactar a soporte.)"
                 )
             if text == "4":
                 return (
@@ -397,223 +549,6 @@ class Chatbot:
                     "- ejemplo: solicita 'reportar' o 'diagnosticar' para empezar.\n"
                     "(Automatizado: acciones sugeridas y comandos para ejecutar pruebas, sin intervención humana.)"
                 )
-            # opción 5: ayuda directa (humana)
-            return (
-                "Opción 5 — Ayuda directa:\n"
-                "- Si quieres hablar con un técnico real, envía 'escalar <id_cliente>' o 'escalar ahora'.\n"
-                "- Esto solicitará la creación de un ticket y la intervención humana."
-            )
-
-        # Manejo de respuestas rápidas para flujos interactivos
-        if getattr(self, 'pending_action', None):
-            pa = self.pending_action
-            # diagnóstico rápido: opciones a/b/c
-            if pa.get('action') == 'diagnostic_quick' and pa.get('stage') == 1:
-                choice = text.lower()
-                if choice in ('a', 'b', 'c'):
-                    self.pending_action = None
-                    if choice == 'a':
-                        return "Has elegido reiniciar módem/router. Pasos: 1) Apaga el módem, espera 30s, enciende. 2) Verifica sincronía. Si persiste, escribe 'diagnosticar <descripción>'."
-                    if choice == 'b':
-                        return "Has elegido verificar cables. Pasos: 1) Confirma cables firmes en módem/router. 2) Cambia cable por otro si es posible. Si sigue fallando, escribe 'diagnosticar <descripción>'."
-                    if choice == 'c':
-                        return "Has elegido ejecutar speedtest. Ejecuta https://www.speedtest.net/ y comparte resultados (ping/download/upload). Si no sabes, escribe 'diagnosticar <descripción>'."
-                else:
-                    # si el usuario escribió otra cosa, cancelar el pending y continuar
-                    self.pending_action = None
-                    # fallthrough para manejar el mensaje como comando normal
-                    pass
-
-        # Short alias / numeric input: allow 'ver <id>' or bare numeric id as synonym for 'ticket <id>'
-        def _format_ticket_from_dict(tid, data):
-            # Campos comunes esperados en la respuesta del partner
-            tn = data.get("ticket_number") or data.get("idTicket") or data.get("id")
-            status_text = data.get("status") or data.get("status_text") or "Desconocido"
-            summary = (data.get("description") or data.get("summary") or "").strip()
-
-            # Cliente
-            customer = ""
-            if data.get("customer_name") or data.get("customer_lastname"):
-                customer = f"{(data.get('customer_name') or '').strip()} {(data.get('customer_lastname') or '').strip()}".strip()
-            elif data.get("customer") and isinstance(data.get("customer"), dict):
-                customer = (data.get("customer", {}).get("name") or "").strip()
-
-            # Prioridad, categoría, paquete y atención
-            priority = data.get("priority") or (str(data.get("idPriority")) if data.get("idPriority") is not None else None) or "—"
-            category = data.get("category") or (str(data.get("idCategory")) if data.get("idCategory") is not None else None) or "—"
-            package = data.get("package") or (data.get("idPackage") and str(data.get("idPackage"))) or "—"
-            attention = data.get("attention") or (str(data.get("idAttentionType")) if data.get("idAttentionType") is not None else None) or "—"
-
-            # Empleado asignado y contacto
-            employee = ""
-            if data.get("employee_name") or data.get("employee_lastname"):
-                employee = f"{(data.get('employee_name') or '').strip()} {(data.get('employee_lastname') or '').strip()}".strip()
-            employee_email = data.get("employee_email") or data.get("employee_contact") or ""
-            employee_phone = data.get("employee_phone_number") or data.get("employee_phone") or ""
-
-            # Fechas
-            date_open = data.get("date_opening") or data.get("date") or data.get("date_created") or None
-            date_close = data.get("date_closing") or data.get("closed_at") or None
-
-            # Construir lenguaje natural
-            lines = []
-            header = f"Ticket {tid} ({tn}) — estado: {status_text}."
-            lines.append(header)
-
-            if customer:
-                lines.append(f"Cliente: {customer}.")
-            if priority and priority != "—":
-                lines.append(f"Prioridad: {priority}.")
-            if category and category != "—":
-                lines.append(f"Categoría: {category}.")
-            if package and package != "—":
-                lines.append(f"Paquete: {package}.")
-            if attention and attention != "—":
-                lines.append(f"Tipo de atención: {attention}.")
-
-            if employee:
-                contact = []
-                if employee_email:
-                    contact.append(employee_email)
-                if employee_phone:
-                    contact.append(str(employee_phone))
-                if contact:
-                    lines.append(f"Asignado a: {employee} ({', '.join(contact)}).")
-                else:
-                    lines.append(f"Asignado a: {employee}.")
-
-            if date_open:
-                lines.append(f"Apertura: {date_open}.")
-            if date_close:
-                lines.append(f"Cierre: {date_close}.")
-
-            if summary:
-                short = summary if len(summary) <= 300 else summary[:297] + "..."
-                lines.append(f"Resumen: {short}.")
-
-            # Sugerencias y comandos útiles
-            lines.append("Puedes escribir 'mostrar json %s' para ver el JSON completo del ticket." % tid)
-            lines.append("Escribe 'menu' para volver al menú principal.")
-
-            return " \n".join(lines)
-
-        is_ver = text.lower().startswith("ver ")
-        is_ticket = text.lower().startswith("ticket ")
-        is_numeric = text.isdigit() and len(text) >= 3
-
-        if is_ver or is_ticket or is_numeric:
-            if is_ver or is_ticket:
-                tid = text.split(maxsplit=1)[1]
-            else:
-                tid = text
-
-            # Try local data first
-            t = self._find_ticket(tid)
-            if t:
-                return _format_ticket_from_dict(tid, t)
-
-            # Try direct resource /tickets/{id}
-            try:
-                res = self._get_partner_resource(f"tickets/{tid}")
-                status = res.get("status_code")
-                data = res.get("data")
-
-                # helper to normalize nested container responses
-                def _extract_candidate(obj):
-                    # If the API returns {"data": {...}} or {"data": [...]}
-                    if isinstance(obj, dict):
-                        if "data" in obj:
-                            return obj["data"]
-                        if "items" in obj and isinstance(obj["items"], list):
-                            return obj["items"]
-                    return obj
-
-                data = _extract_candidate(data)
-
-                if status == 200 and data:
-                    # If we received a dict representing the ticket
-                    if isinstance(data, dict):
-                        return _format_ticket_from_dict(tid, data)
-                    # If we received a list, pick the first match or search it
-                    if isinstance(data, list) and data:
-                        # try to find exact match in list
-                        for item in data:
-                            if str(item.get("idTicket") or item.get("id") or item.get("ticket_number")) == str(tid):
-                                return _format_ticket_from_dict(tid, item)
-                        return _format_ticket_from_dict(tid, data[0])
-
-                # If API returned 204 No Content or empty body, try listing and query variations
-                tried = []
-                if status in (204, 200) and (not data or (isinstance(data, list) and len(data) == 0)):
-                    variants = [
-                        f"tickets/{tid}/",
-                        f"tickets?idTicket={tid}",
-                        f"tickets?ticket_number={tid}",
-                        f"tickets?search={tid}",
-                        "tickets/",
-                    ]
-                    for path in variants:
-                        try:
-                            tried.append(path)
-                            list_res = self._get_partner_resource(path)
-                            list_status = list_res.get("status_code")
-                            list_data = _extract_candidate(list_res.get("data"))
-
-                            if list_status == 200 and list_data:
-                                # normalize to list if dict contains list
-                                if isinstance(list_data, dict):
-                                    # try common containers
-                                    if isinstance(list_data.get("data"), list):
-                                        list_data = list_data.get("data")
-                                    elif isinstance(list_data.get("items"), list):
-                                        list_data = list_data.get("items")
-
-                                if isinstance(list_data, list):
-                                    for item in list_data:
-                                        if str(item.get("idTicket") or item.get("id") or item.get("ticket_number")) == str(tid):
-                                            return _format_ticket_from_dict(tid, item)
-                                        if item.get("ticket_number") and str(tid) in str(item.get("ticket_number")):
-                                            return _format_ticket_from_dict(tid, item)
-                                elif isinstance(list_data, dict):
-                                    # maybe the dict itself is the ticket
-                                    if str(list_data.get("idTicket") or list_data.get("id") or list_data.get("ticket_number")) == str(tid):
-                                        return _format_ticket_from_dict(tid, list_data)
-                        except Exception:
-                            continue
-
-                # Nothing found after trying variants
-                self.logger.info(json.dumps({"type": "ticket_lookup_tried", "tid": tid, "tried": tried, "last_status": status}, ensure_ascii=False))
-                return f"No encontré ticket con id {tid} (API status {status})"
-
-            except Exception as e:
-                return f"Error consultando ticket remoto: {e}"
-
-        # Reportar / Diagnóstico
-        if text.lower().startswith("reportar ") or text.lower().startswith("diagnosticar "):
-            desc = text.split(maxsplit=1)[1]
-            diag = self._diagnostic_flow(desc)
-            steps_text = "\n".join(diag["steps"])
-            # No customer id provided here; user can follow steps or pedir escalación
-            return f"Diagnóstico sugerido (severity={diag['severity']}):\n{steps_text}\nSi quieres escalar, envía 'escalar <id_cliente>'"
-
-        # Gestión de cuenta (stub)
-        if text.lower().startswith("cuenta "):
-            cid = text.split(maxsplit=1)[1]
-            seg = self._get_customer_segment(cid)
-            return f"Cliente {cid}: segmento={seg} (datos extra disponibles en customers.json)"
-
-        # Escalar explícito
-        if text.lower().startswith("escalar ") or text.lower() == "escalar ahora":
-            parts = text.split()
-            cid = parts[1] if len(parts) > 1 else None
-            summary = "Solicitud de escalamiento solicitada por el cliente"
-            severity = "high"
-            payload = self._create_escalation_payload(text, cid, summary, severity)
-            try:
-                res = self._post_escalation(payload)
-                return f"Escalación enviada. Código HTTP: {res.get('status_code')}"
-            except Exception as e:
-                return f"Error al enviar escalación: {e}"
 
         # Shortcut: deterministic short greeting (avoid invoking Ollama for simple salutations)
         low_text = text.lower()
@@ -623,12 +558,35 @@ class Chatbot:
                 "Hola, soy ChatGNS, estoy para ayudarte! Elige una opción:\n"
                 "1) Estado de mi Ticket — consulta automática por id (usa 'ticket <id>').\n"
                 "2) Reportar Falla / Diagnóstico — diagnóstico automático y pasos (usa 'diagnosticar <descripción>').\n"
-                "3) Gestión de Cuenta — ver segmento y acciones (usa 'cuenta <id_cliente>').\n"
-                "4) Soluciones Técnicas Automatizadas — pruebas y pasos guiados (usa 'reportar' o 'diagnosticar').\n"
-                "5) Ayuda directa — hablar con un técnico (envía 'escalar <id_cliente>' o 'escalar ahora')."
+                "3) Información de cuenta — ver segmento y acciones (usa 'cuenta <id_cliente>').\n"
+                "4) Pedir asistencia remota — solicita ayuda técnica (usa 'asistencia' o 'escalar')."
             )
 
+        # Detectar palabras clave de intermitencia y devolver un flujo de diagnóstico accionable
+        if any(k in low_text for k in ("intermit", "intermitencia", "intermitente", "intermitir", "intermitencias")):
+            diag_lines = [
+                "Detecto intermitencia: propongo 4 pasos rápidos.",
+                "1) Reproducir y anotar cuándo ocurre (hora y acción).",
+                "2) Revisar si hay errores registrados en el sistema (si tengo acceso). Responde 'sí' para intentar o 'asistencia' para ayuda técnica.",
+                "3) Comprobar conectividad: probar desde un equipo afectado y desde el servidor.",
+                "4) Ver recursos del servidor: comprobar CPU, memoria y disco. Responde 'asistencia' si quieres un informe para el técnico.",
+                "Si quieres, responde 'siguiente' para guiarte paso a paso, 'todos' para ver la lista completa, o 'asistencia' para solicitar ayuda técnica con un resumen."
+            ]
+            return "\n".join(diag_lines)
+
         # Si no coincide con comandos, proceder con la lógica previa: consultar KB remoto y LLM/fallback
+        # Evitar consultar KB y LLM para comandos cortos o navegación: devolver una respuesta clara en lugar de llamar al LLM
+        cmd = message.strip()
+        short_cmds = {"menu", "help", "inicio", "1", "2", "3", "4", "a", "b", "c", "siguiente", "todos", "mas", "más"}
+        # Only treat very short inputs (2 chars or less) as navigation/short commands.
+        # This allows 3-digit bare numbers like '250' to be handled as ticket ids.
+        if cmd in short_cmds or len(cmd) <= 2:
+            # Si es un número corto, guiar al usuario a usar el formato correcto para tickets
+            if cmd.isdigit():
+                return "Parece un número corto. Para consultar un ticket usa 'ticket <id>' con al menos 3 dígitos o escribe 'menu' para ver opciones."
+            # Mensaje genérico pidiendo más contexto
+            return "No entendí completamente. ¿Puedes dar más detalles o escribir 'menu' para ver las opciones?"
+
         try:
             kb = self._query_partner_kb(message)
         except Exception as e:
@@ -643,7 +601,6 @@ class Chatbot:
         )
 
         try:
-            # usar _run_llm si existe, sino fallback
             reply = getattr(self, "_run_llm", lambda p: "Sin motor LLM disponible")(combined_prompt)
         except Exception as e:
             reply = f"Error al generar respuesta: {e}"
