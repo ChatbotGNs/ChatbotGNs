@@ -15,3 +15,8 @@ customers.json
 tickets.json
 comments.json
 categories.json
+
+.chainlit/translations/*
+
+!.chainlit/translations/en-US.json
+!.chainlit/translations/es.json
