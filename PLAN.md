@@ -17,7 +17,7 @@ Este documento define la hoja de ruta para optimizar la experiencia de usuario, 
 *Objetivo: Mejorar la percepción de velocidad y evitar errores visuales en la interfaz web.*
 
 - [ ] **2.1. Indicador de "Pensando...":** Implementar un estado de carga (loader visual en Chainlit) y ajustar *timeouts* durante la ejecución de Ollama para que la UI no parezca congelada.
-- [ ] **2.2. Solución al Bug del "Menú Infinito":** Desacoplar la UI de Chainlit del texto plano. Refactorizar el código para enviar *payloads* o diccionarios que rendericen botones de acción en lugar de buscar coincidencias de texto como `"paso 1/"`.
+- [✅ ] **2.2. Solución al Bug del "Menú Infinito":** Desacoplar la UI de Chainlit del texto plano. Refactorizar el código para enviar *payloads* o diccionarios que rendericen botones de acción en lugar de buscar coincidencias de texto como `"paso 1/"`.
 - [ ] **2.3. Tolerancia a Bypass de IA (Respuestas cortas):** Ajustar las validaciones para que el bot no se rompa al recibir respuestas cortas afirmativas o negativas ("sí", "no", "ok"), permitiendo fluidez en el diagnóstico.
 - [ ] **2.4. Agregar en el readme instrucciones basicas para el usuario
 - [ ] **2.5. Cambiar el logo de favicon para que se vea bien

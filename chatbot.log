@@ -604,3 +604,80 @@
 2026-06-07 01:43:04,529 INFO {"type": "kb_query", "query": "Mi internet está lento o fallando, ¿qué puedo hacer para diagnosticar el problema?", "status_code": 404, "response": {"message": "Endpoint inválido", "code": 404}}
 2026-06-07 01:43:04,545 INFO {"ts": "2026-06-07T07:43:04.545423Z", "user": "Mi internet está lento o fallando, ¿qué puedo hacer para diagnosticar el problema?", "bot": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file.", "kb_status": 404}
 2026-06-07 01:43:04,554 INFO {"type": "escalation_decision", "decision_text": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file."}
+2026-06-07 02:08:32,738 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:08:32,739 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 02:08:32,740 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 02:08:32,740 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 02:08:34,407 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:08:34,408 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 02:08:34,408 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 02:08:34,408 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 02:10:19,562 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:10:19,578 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:10:23,247 INFO {"type": "kb_query", "query": "Mi internet está lento o fallando, ¿qué puedo hacer para diagnosticar el problema?", "status_code": 404, "response": {"message": "Endpoint inválido", "code": 404}}
+2026-06-07 02:11:32,439 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:11:32,441 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:11:44,023 INFO {"ts": "2026-06-07T08:11:44.023231Z", "user": "Mi internet está lento o fallando, ¿qué puedo hacer para diagnosticar el problema?", "bot": "Error ejecutando Ollama: Command '['ollama', 'run', 'llama2:7b-chat']' timed out after 60 seconds", "kb_status": 404}
+2026-06-07 02:15:02,425 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:15:02,426 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:15:02,724 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:15:02,725 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:16:27,430 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:16:27,431 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:18:46,426 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:18:46,426 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:18:48,430 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:18:48,432 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:26:15,756 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:26:15,757 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:26:17,413 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:26:17,414 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:26:48,676 ERROR No se encontró el archivo instrucciones_diagnostico.txt
+2026-06-07 02:27:03,828 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:27:03,831 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:27:19,029 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:27:19,030 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:33:50,015 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:33:50,016 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:44:04,419 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:44:04,420 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:44:04,544 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:44:04,545 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:24,427 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:24,428 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:24,432 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:24,433 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:27,425 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:27,426 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:27,431 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:27,432 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:30,428 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:30,428 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:30,434 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:30,435 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:34,583 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:34,584 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:35,421 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:35,422 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:58,424 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:58,424 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:45:58,429 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:45:58,430 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:46:05,430 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:46:05,431 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:46:05,433 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:46:05,433 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:46:11,437 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:46:11,438 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:46:12,440 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:46:12,441 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:46:13,426 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:46:13,427 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:46:21,447 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:46:21,449 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:46:21,454 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:46:21,454 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:52:55,429 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:52:55,430 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 02:52:56,431 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 02:52:56,433 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
