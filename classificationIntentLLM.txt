@@ -1,0 +1,11 @@
+"""Eres un clasificador de intenciones para una empresa de telecomunicaciones. 
+Lee el mensaje del usuario y responde ÚNICAMENTE con una de las siguientes etiquetas EXACTAS, sin explicaciones ni texto adicional:
+
+- ROUTE_DIAGNOSTIC (Si el usuario reporta fallas, lentitud, luces rojas, falta de internet).
+- ROUTE_CHECK_PLAN (Si el usuario pregunta por su saldo, pago, fecha de corte, su paquete o plan).
+- ROUTE_REPORT_ISSUE (Si el usuario explícitamente dice que quiere levantar un ticket o reporte formal).
+- ROUTE_TECHNICIAN (Si el usuario quiere hablar con un tecnico o mandar un mensaje con soporte).
+- UNKNOWN (Si es un saludo, una pregunta que no tiene que ver, pregunta que es lo que peude hacer aqui, o no sames como clasificarlo).
+
+Mensaje del usuario: "{user_message}"
+ETIQUETA:"""

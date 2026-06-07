@@ -114,6 +114,9 @@ class Chatbot:
 
         action = self.current_flow.get("action")
         step = self.current_flow.get("step")
+
+        # Agrega este LOG temporal para ver qué está pasando:
+        self.logger.info(f"[ENRUTADOR] Action: {action} | Step: {step} | Text: {text}")
         
         # Enrutar a la función correspondiente
         if action == "check_plan":
@@ -199,20 +202,27 @@ class Chatbot:
         # PASO 1: Pedir ID de Cliente para buscar el idCustomerPackage en la API
         if step == "get_customer_id":
             if not text.strip().isdigit():
-                return "Ingresa tu ID de Cliente (solo números):"
+                return "Por favor, ingresa únicamente números para tu ID de Cliente (o escribe **cancelar**):"
             
             customer_id = text.strip()
-            
-            # Vamos a la API a buscar los servicios de este cliente
-            servicios_res = self._get_services_by_customer(customer_id)
-            if not servicios_res.get("success") or not servicios_res.get("data"):
-                self.current_flow = None
-                return "No encontré un servicio asociado a ese ID de Cliente. Operación cancelada."
-            
-            # TODO: agregar escalado rapido si es un cliente empresarial y el problema es fuerte
-            # Acceso seguro al JSON según tu estructura
             try:
+                self.logger.info(f"Consultando servicios en la API para el cliente: {customer_id}...")
+                
+                # Vamos a la API a buscar los servicios de este cliente
+                servicios_res = self._get_services_by_customer(customer_id)
+                
+                # PREVENCIÓN DE ERROR: Verificamos que la API realmente devolvió un diccionario
+                if not servicios_res or not isinstance(servicios_res, dict):
+                    self.logger.error(f"[API ERROR] La respuesta de la API no es válida: {servicios_res}")
+                    return "Hubo un error de conexión con la base de datos. Por favor, intenta de nuevo más tarde o escribe **cancelar**."
+
+                if not servicios_res.get("success") or not servicios_res.get("data"):
+                    self.logger.warning(f"No se encontraron servicios para el ID {customer_id}")
+                    return f"No encontré un servicio activo asociado al ID **{customer_id}**.\n\nPor favor, verifica el número e **ingrésalo de nuevo** (o escribe 'cancelar' para regresar al menú):"
+                
+                # Acceso seguro al JSON según tu estructura
                 datos_api = servicios_res["data"]
+                
                 if isinstance(datos_api, dict) and "idPackage" in datos_api:
                     primer_servicio = datos_api["idPackage"]
                 elif isinstance(datos_api, list) and len(datos_api) > 0:
@@ -221,20 +231,34 @@ class Chatbot:
                     primer_servicio = datos_api
                 
                 id_paquete = primer_servicio.get("id") if isinstance(primer_servicio, dict) else primer_servicio
-            except Exception:
+                
+                if not id_paquete:
+                    self.current_flow = None
+                    return "No se pudo extraer el ID del paquete de servicio. Operación cancelada."
+
+                if "payload" not in self.current_flow:
+                    self.current_flow["payload"] = {}
+                # Guardamos el idCustomerPackage requerido por la API de tickets
+                self.current_flow["payload"]["idCustomerPackage"] = int(id_paquete)
+                self.current_flow["step"] = "problem"
+        
+                return "Servicio localizado. Ahora, por favor **describe brevemente la falla** que presentas:"
+
+            except ValueError:
+                # Si id_paquete tiene letras y no se puede convertir a int()
+                self.logger.error(f"Error de conversión. id_paquete recibido: {id_paquete}")
                 self.current_flow = None
-                return "Hubo un problema al interpretar los datos del servicio. Operación cancelada."
+                return "El formato del ID del paquete es incorrecto. Operación cancelada."
+                
+            except Exception as e:
+                # ¡AQUÍ ATRAPAMOS EL ERROR INVISIBLE! 
+                import traceback
+                error_trace = traceback.format_exc()
+                self.logger.error(f"[CRASH EN GET_CUSTOMER_ID] Error: {str(e)}\n{error_trace}")
+                
+                self.current_flow = None
+                return "Ocurrió un error interno al validar tus datos. Por favor, escribe **menú** para intentarlo de nuevo."
             
-            if not id_paquete:
-                self.current_flow = None
-                return "No se pudo extraer el ID del paquete de servicio. Operación cancelada."
-
-            # Guardamos el idCustomerPackage requerido por la API de tickets
-            self.current_flow["payload"]["idCustomerPackage"] = int(id_paquete)
-            self.current_flow["step"] = "problem"
-    
-            return "Servicio localizado. Ahora, por favor **describe brevemente la falla** que presentas:"
-
         # PASO 2: Capturar el problema
         elif step == "problem":
             if len(text.strip()) < 5:
@@ -359,6 +383,7 @@ class Chatbot:
         try:
             response = requests.get(url, headers=headers, auth=self.auth, timeout=10)
             if response.status_code == 200:
+                print("succes")
                 return {"success": True, "data": response.json()}
             return {"success": False, "error": f"Error {response.status_code}"}
         except Exception as e:
@@ -507,37 +532,47 @@ class Chatbot:
             self.logger.error(f"Error ejecutando IA: {e}")
             return "Ocurrió un error inesperado al consultar la IA."
         
+    # TODO: poner las cosas correctas 
     def _classify_intent_with_llm(self, text: str) -> str:
         """
         Usa el LLM para entender qué quiere hacer el usuario y devuelve una etiqueta estricta.
         """
-        prompt = f"""Eres un clasificador de intenciones para una empresa de telecomunicaciones. 
-Lee el mensaje del usuario y responde ÚNICAMENTE con una de las siguientes etiquetas EXACTAS, sin explicaciones ni texto adicional:
+        ruta_archivo = "classificationIntentLLM.txt"
+        
+        try:
+            with open(ruta_archivo, "r", encoding="utf-8") as f:
+                prompt_template = f.read()
+        except FileNotFoundError:
+            # Fallback de seguridad si se borra el archivo
+            self.logger.error(f"No se encontró el archivo {ruta_archivo}. Usando prompt por defecto.")
+            prompt_template = """Eres un clasificador de intenciones. Responde ÚNICAMENTE con una etiqueta:
+            - ROUTE_DIAGNOSTIC
+            - ROUTE_CHECK_PLAN
+            - ROUTE_REPORT_ISSUE
+            - ROUTE_CHECK_TICKET
+            - UNKNOWN
 
-- ROUTE_DIAGNOSTIC (Si el usuario reporta fallas, lentitud, luces rojas, falta de internet, o pide soporte técnico).
-- ROUTE_CHECK_PLAN (Si el usuario pregunta por su saldo, pago, fecha de corte, su paquete o plan).
-- ROUTE_REPORT_ISSUE (Si el usuario explícitamente dice que quiere levantar un ticket o reporte formal).
-- ROUTE_CHECK_TICKET (Si el usuario quiere saber el estado de un ticket o reporte previo).
-- UNKNOWN (Si es un saludo, una pregunta que no tiene que ver, o no estás seguro).
+            Mensaje del usuario: "{user_message}"
+            ETIQUETA:"""
 
-Mensaje del usuario: "{text}"
-ETIQUETA:"""
+        # ¡AQUÍ ESTÁ LA MAGIA! Reemplazamos {user_message} con lo que escribió el cliente
+        prompt = prompt_template.format(user_message=text)
 
-        # Usamos tu misma función de Ollama que ya funciona perfecto
+        # Usamos tu función de Ollama
         respuesta = self._run_llm(prompt)
         
         # Limpiamos la respuesta por si la IA agregó un punto final o espacios
         return respuesta.strip().upper()
     
-    
     def _handle_speak_technician_flow(self, text: str, step: str) -> str:
         """
         Flujo rápido para capturar datos y notificar a un técnico humano.
         """
+        # TODO: preguntar el problema para mandarlo en el wats o correo 
         if step == "ask_problem":
             self.current_flow["payload"]["problem"] = text.strip()
             self.current_flow["step"] = "ask_contact"
-            return "Entendido. Para que un técnico se comunique contigo de inmediato, por favor **ingresa tu número de teléfono o correo electrónico**:"
+            return "Para que un técnico se comunique contigo de inmediato, por favor **ingresa tu número de teléfono o correo electrónico**:"
 
         elif step == "ask_contact":
             contacto = text.strip()
@@ -559,7 +594,6 @@ ETIQUETA:"""
                 
         return "Flujo terminado con errores."
     
-
     def _contact_technician(self, user_contact: str, problem_description: str, method: str = "whatsapp") -> bool:
         """
         Envía un mensaje predeterminado a un técnico vía WhatsApp o Correo.
@@ -592,7 +626,20 @@ ETIQUETA:"""
             self.logger.error(f"Error al intentar notificar al técnico: {e}")
             return False
 
-def ask(self, message: str) -> str:
+    def _show_menu_action(self) -> str:
+        """
+        Devuelve el texto del menú principal.
+        """
+        return (
+            "¡Hola! ¿Qué te gustaría hacer o revisar?\n\n"
+            "Selecciona una opción o escríbela:\n"
+            "1) Reportar Falla\n"
+            "2) Consultar Plan\n"
+            "3) Diagnóstico Rápido\n"
+            "4) Hablar con Técnico\n"
+        )
+
+    def ask(self, message: str) -> str:
         """
         Punto de entrada principal. Recibe el mensaje, verifica si estamos en medio
         de un flujo y, si no, evalúa qué opción del menú eligió el usuario.
@@ -602,11 +649,11 @@ def ask(self, message: str) -> str:
         low_text = text.lower()
 
         # Diccionarios de palabras exactas (Ruta Rápida)
-        palabras_opcion1 = ["1", "opción 1", "estado de mi ticket", "estado de ticket"] 
-        palabras_opcion2 = ["2", "opción 2", "reportar falla", "reportar"] 
-        palabras_opcion3 = ["3", "opción 3", "gestión de cuenta", "consultar plan"]
-        palabras_opcion4 = ["4", "opción 4", "soporte", "diagnóstico rápido", "diagnóstico", "hablar con técnico", "quiero hablar con un técnico"]
-        menu_keywords = ["cancelar", "salir", "menu", "menú", "regresar", "inicio"]
+        palabras_opcion1 = ["1", "opción 1", "reportar falla", "reportar", "tengo un problema con mi internet"] 
+        palabras_opcion2 = ["2", "opción 2", "gestión de cuenta", "consultar plan", "quiero consultar mi plan actual"]
+        palabras_opcion3 = ["3", "opción 3", "soporte", "diagnóstico rápido", "diagnóstico", "tengo problemas con mi internet, ¿me ayudas?"]
+        palabras_opcion4 = ["4", "opción 3", "humano", "tecnico", "mensaje", "quiero hablar con un técnico"]
+        menu_keywords = ["cancelar", "salir", "menu", "menú", "regresar", "inicio", "que puedo hacer"]
 
         # ==========================================
         # 1. RUTA RÁPIDA (Botones y Comandos Exactos)
@@ -615,22 +662,30 @@ def ask(self, message: str) -> str:
         if low_text in menu_keywords:
             self.logger.warning(f"[FLUJO CANCELADO] El usuario canceló el flujo: {self.current_flow.get('action')}")
             self.current_flow = None # Destruimos el flujo
-            return self._show_main_menu() # Muestra el menú (puedes poner el texto directo aquí)
+            # Devolvemos el texto directamente:
+            return (
+                "Operación cancelada. ¿Qué te gustaría hacer ahora?\n\n"
+                "Selecciona una opción o escribela:\n"
+                "1) Reportar Falla\n"
+                "2) Consultar Plan\n"
+                "3) Diagnostico Rapido\n"
+                "4) Hablar con Técnico\n"
+            )
 
         if low_text in palabras_opcion1:
-            self.current_flow = {"action": "check_ticket", "step": "ask_ticket_id"}
-            return "Has elegido Estado de mi Ticket.\n\nPor favor, ingresa tu **Número de Ticket**:"
-
-        if low_text in palabras_opcion2:
-            self.current_flow = {"action": "report_issue", "step": "get_customer_id", "payload": {}}
+            self.current_flow = {"action": "report_issue", "step": "get_customer_id"}
             return "Has elegido Reportar Falla.\n\nPara empezar, por favor ingresa tu **ID de Cliente**:"
 
-        if low_text in palabras_opcion3:
-            self.current_flow = {"action": "check_plan"}
+        if low_text in palabras_opcion2:
+            self.current_flow = {"action": "check_plan", "step": "get_customer_info", "payload": {}}
             return "Has elegido Consultar Plan y Saldo.\n\nPor favor, ingresa tu **ID de Cliente**:"
 
+        if low_text in palabras_opcion3:
+            self.current_flow = {"action": "auto_diagnostic"}
+            return "Has elegido Auto-Diagnóstico / Soporte Técnico.\n\nPor favor, **descríbeme con detalle cuál es el problema** que tienes con tu servicio:"
+
         if low_text in palabras_opcion4:
-            self.current_flow = {"action": "auto_diagnostic", "step": "ask_problem", "history": ""}
+            self.current_flow = {"action": "contact_technician", "step": "ask_problem", "history": ""}
             return "Has elegido Diagnóstico Rápido / Soporte Técnico.\n\nPor favor, **descríbeme con detalle cuál es el problema** que tienes con tu servicio:"
 
         # ==========================================
@@ -648,7 +703,7 @@ def ask(self, message: str) -> str:
             
             intencion = self._classify_intent_with_llm(text)
             self.logger.info(f"[ENRUTAMIENTO LLM] Intención detectada: {intencion} para el texto: '{text}'")
-            # A. Si detecta una FALLA
+            # A. Si quiere probar solucionarlo
             if "ROUTE_DIAGNOSTIC" in intencion:
                 self.current_flow = {
                     "action": "auto_diagnostic",
@@ -665,17 +720,20 @@ def ask(self, message: str) -> str:
             elif "ROUTE_CHECK_PLAN" in intencion:
                 self.current_flow = {"action": "check_plan"}
                 return "Entiendo que quieres consultar la información de tu cuenta.\n\nPor favor, ingresa tu **ID de Cliente**:"
-
-            # C. Si detecta que quiere REVISAR UN TICKET
-            elif "ROUTE_CHECK_TICKET" in intencion:
-                self.current_flow = {"action": "check_ticket", "step": "ask_ticket_id"}
-                return "Entiendo que quieres revisar un ticket previo.\n\nPor favor, ingresa tu **Número de Ticket**:" 
-
+            
             # D. Si detecta que quiere REPORTAR FALLA FORMAL
             elif "ROUTE_REPORT_ISSUE" in intencion:
                 self.current_flow = {"action": "report_issue", "step": "get_customer_id", "payload": {}}
                 return "Entiendo que deseas levantar un reporte de falla.\n\nPara empezar, por favor ingresa tu **ID de Cliente**:"
-
+            
+            elif "ROUTE_TECHNICIAN" in intencion:
+                self.current_flow = {"action": "contact_technician"}
+                return "Entiendo que quieres hablar con un Tecnico, :"
+            
+            elif "UNKNOWN" in intencion:
+                self.current_flow = None
+                return self._show_menu_action()
+            
         # ==========================================
         # 4. SALUDOS Y FALLBACK (Por Defecto)
         # ==========================================
@@ -683,8 +741,8 @@ def ask(self, message: str) -> str:
         return (
             "¡Hola! ¿Qué te gustaría hacer o revisar?\n\n"
             "Selecciona una opción:\n"
-            "1) Estado de mi Ticket\n"
-            "2) Reportar Falla\n"
-            "3) Gestión de Cuenta\n"
+            "1) Reportar Falla\n"
+            "2) Gestión de Cuenta\n"
+            "3) Auto Diagnostico\n"
             "4) Hablar con Técnico\n"
         )
