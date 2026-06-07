@@ -115,9 +115,9 @@ async def main(message):
         if bot.current_flow is None:
             # Si el flujo es None, el usuario está libre (en el menú principal o terminó un proceso)
             buttons = [
-                {"label": "Estado de mi Ticket", "value": "1"},
-                {"label": "Reportar Falla", "value": "2"},
-                {"label": "Gestión de Cuenta", "value": "3"},
+                {"label": "Reportar Falla", "value": "1"},
+                {"label": "Gestión de Cuenta", "value": "2"},
+                {"label": "Diagnostico Rapido", "value": "3"},
                 {"label": "Hablar con Técnico", "value": "4"},
             ]
         else:
@@ -163,9 +163,9 @@ async def on_action(action: cl.Action):
     await action.remove()
     
     if valor_elegido in ["menu", "cancelar"]:
-        await cl.Message(content=f"👉 *Acción: {valor_elegido.capitalize()}*").send()
+        await cl.Message(content=f"*Acción: {valor_elegido.capitalize()}*").send()
     else:
-        await cl.Message(content=f"👉 *Seleccionaste la opción: {valor_elegido}*").send()
+        await cl.Message(content=f"*Seleccionaste la opción: {valor_elegido}*").send()
 
     # 4. ¡MAGIA! En lugar de procesarlo aquí y perder los próximos botones,
     # mandamos el valor del botón directamente a nuestra función `main` como si 

@@ -681,3 +681,270 @@
 2026-06-07 02:52:55,430 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
 2026-06-07 02:52:56,431 INFO Chatbot iniciado (modo fallback, sin LLM)
 2026-06-07 02:52:56,433 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:49:09,009 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:49:09,010 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:50:38,628 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:50:38,628 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:50:44,246 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 14:50:52,729 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_DIAGNOSTIC
+2026-06-07 14:50:52,730 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_DIAGNOSTIC para el texto: 'Tengo un problema con mi internet'
+2026-06-07 14:51:00,963 INFO [OLLAMA RESPONSE] La IA respondió: Buen día, gracias por llegar a nosotros hoy. Entiendo que estás experimentando problemas con tu internet. Para ayudarte a diagnosticar el problema, te sugiero seguir los pasos del Manual A: Reiniciar el módem y el router. ¡Espero que esto solucione el problema!
+
+¿Te avisaré cuando hayas hecho esto?
+2026-06-07 14:51:14,895 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:51:14,896 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:52:09,624 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:52:09,625 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:52:10,623 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:52:10,624 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:54:41,693 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:54:41,694 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:54:42,000 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:54:42,001 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:54:44,760 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 14:55:03,279 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 14:57:41,624 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:57:41,625 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:57:54,627 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:57:54,628 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:58:07,628 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:58:07,629 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:58:13,620 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:58:13,620 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:58:49,619 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:58:49,619 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:58:54,634 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:58:54,635 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:59:00,639 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:59:00,640 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:59:02,622 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:59:02,623 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:59:50,713 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:59:50,714 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:59:51,021 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 14:59:51,022 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 14:59:52,490 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:00:02,568 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 15:02:33,496 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:02:33,497 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:02:33,612 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:02:33,613 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:02:34,883 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:02:38,016 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 15:05:16,626 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:05:16,627 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:08:35,618 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:08:35,618 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:08:37,625 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:08:37,626 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:08:39,622 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:08:39,624 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:08:47,229 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:08:53,276 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 15:09:27,619 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:09:27,620 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:09:33,627 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:09:33,628 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:09:36,622 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:09:36,623 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:09:50,621 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:09:50,622 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:09:52,623 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:09:52,624 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:17:25,004 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:17:25,005 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:17:26,785 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:17:29,592 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 15:17:43,628 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:17:43,629 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:17:47,621 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:17:47,622 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:17:49,201 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:17:49,202 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:22:44,220 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:22:44,221 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:22:44,622 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:22:44,623 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:22:45,564 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:22:48,540 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 15:22:48,540 INFO [ENRUTADOR] Action: report_issue | Step: get_customer_id | Text: 170
+2026-06-07 15:22:48,540 INFO Consultando servicios en la API para el cliente: 170...
+2026-06-07 15:22:51,072 ERROR [CRASH EN GET_CUSTOMER_ID] Error: 'payload'
+Traceback (most recent call last):
+  File "C:\Users\edgar\Documents\VsCode\ChatbotGNs\chatbot.py", line 240, in _handle_report_issue_flow
+    self.current_flow["payload"]["idCustomerPackage"] = int(id_paquete)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'payload'
+
+2026-06-07 15:24:59,744 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:24:59,745 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:24:59,752 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:24:59,753 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:25:00,060 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:25:00,061 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:25:03,290 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:25:06,022 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 15:25:06,022 INFO [ENRUTADOR] Action: report_issue | Step: get_customer_id | Text: 170
+2026-06-07 15:25:06,023 INFO Consultando servicios en la API para el cliente: 170...
+2026-06-07 15:25:22,176 INFO [MENSAJE USUARIO] Texto recibido: mi internet se cayo y no ha vuelto
+2026-06-07 15:25:22,177 INFO [ENRUTADOR] Action: report_issue | Step: problem | Text: mi internet se cayo y no ha vuelto
+2026-06-07 15:25:25,293 INFO [MENSAJE USUARIO] Texto recibido: saltar
+2026-06-07 15:25:25,294 INFO [ENRUTADOR] Action: report_issue | Step: contact_name | Text: saltar
+2026-06-07 15:25:31,049 INFO [MENSAJE USUARIO] Texto recibido: siguiente
+2026-06-07 15:25:31,049 INFO [ENRUTADOR] Action: report_issue | Step: phone_number | Text: siguiente
+2026-06-07 15:25:35,174 INFO [MENSAJE USUARIO] Texto recibido: saltar
+2026-06-07 15:25:35,175 INFO [ENRUTADOR] Action: report_issue | Step: visit_date | Text: saltar
+2026-06-07 15:26:17,855 INFO [MENSAJE USUARIO] Texto recibido: 2
+2026-06-07 15:26:19,054 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 15:26:19,054 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: check_plan
+2026-06-07 15:29:28,620 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:29:28,620 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:29:32,616 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:29:32,616 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:29:35,177 INFO [MENSAJE USUARIO] Texto recibido: Quiero consultar mi plan actual
+2026-06-07 15:29:36,148 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 15:29:36,149 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: check_plan
+2026-06-07 15:30:31,873 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:30:31,874 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:30:39,542 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:30:39,544 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:30:48,635 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:30:48,637 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:30:53,378 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:30:53,379 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:30:59,693 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:31:00,883 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 15:31:00,883 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: report_issue
+2026-06-07 15:31:23,628 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:31:23,629 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:31:32,627 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:31:32,628 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:31:38,454 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:31:39,421 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:31:39,422 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:31:40,319 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:31:40,863 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 15:31:40,864 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: report_issue
+2026-06-07 15:32:03,349 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:32:03,350 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:32:06,378 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:32:09,398 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 15:32:09,398 INFO [ENRUTADOR] Action: report_issue | Step: get_customer_id | Text: 170
+2026-06-07 15:32:09,399 INFO Consultando servicios en la API para el cliente: 170...
+2026-06-07 15:32:31,301 INFO [MENSAJE USUARIO] Texto recibido: m internet esta muy lento
+2026-06-07 15:32:31,302 INFO [ENRUTADOR] Action: report_issue | Step: problem | Text: m internet esta muy lento
+2026-06-07 15:32:34,373 INFO [MENSAJE USUARIO] Texto recibido: no
+2026-06-07 15:32:34,374 INFO [ENRUTADOR] Action: report_issue | Step: contact_name | Text: no
+2026-06-07 15:32:35,085 INFO [MENSAJE USUARIO] Texto recibido: no
+2026-06-07 15:32:35,085 INFO [ENRUTADOR] Action: report_issue | Step: phone_number | Text: no
+2026-06-07 15:32:36,086 INFO [MENSAJE USUARIO] Texto recibido: no
+2026-06-07 15:32:36,086 INFO [ENRUTADOR] Action: report_issue | Step: visit_date | Text: no
+2026-06-07 15:32:44,363 INFO [MENSAJE USUARIO] Texto recibido: auto diagnostico
+2026-06-07 15:32:50,514 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_DIAGNOSTIC
+2026-06-07 15:32:50,515 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_DIAGNOSTIC para el texto: 'auto diagnostico'
+2026-06-07 15:33:00,693 INFO [OLLAMA RESPONSE] La IA respondió: Bienvenido al diagnosticador de problemas de red! 🚀
+
+Dado que el cliente ha reportado un problema initial de "auto diagnostico", creo que debemos seguir el manual A - Sin servicio / No conecta / Corte.
+
+Por lo tanto, mi primer paso técnico es: Reiniciar el módem y el router (desconectar de la corriente, esperar 10-15s y reconectar). ¿Me avisas cuando lo hayas hecho?
+2026-06-07 15:42:20,174 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:42:20,176 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:42:20,475 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:42:20,477 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:42:29,692 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 15:42:32,247 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 15:42:32,248 INFO [ENRUTADOR] Action: report_issue | Step: get_customer_id | Text: 170
+2026-06-07 15:42:32,248 INFO Consultando servicios en la API para el cliente: 170...
+2026-06-07 15:42:41,281 INFO [MENSAJE USUARIO] Texto recibido: m iinternet esta fallando
+2026-06-07 15:42:41,281 INFO [ENRUTADOR] Action: report_issue | Step: problem | Text: m iinternet esta fallando
+2026-06-07 15:42:46,416 INFO [MENSAJE USUARIO] Texto recibido: auto diagnostico
+2026-06-07 15:42:46,416 INFO [ENRUTADOR] Action: report_issue | Step: contact_name | Text: auto diagnostico
+2026-06-07 15:42:54,878 INFO [MENSAJE USUARIO] Texto recibido: siguiente
+2026-06-07 15:42:54,878 INFO [ENRUTADOR] Action: report_issue | Step: phone_number | Text: siguiente
+2026-06-07 15:42:56,491 INFO [MENSAJE USUARIO] Texto recibido: no
+2026-06-07 15:42:56,492 INFO [ENRUTADOR] Action: report_issue | Step: visit_date | Text: no
+2026-06-07 15:43:05,107 INFO [MENSAJE USUARIO] Texto recibido: auto diagnostico
+2026-06-07 15:43:11,244 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_DIAGNOSTIC
+2026-06-07 15:43:11,245 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_DIAGNOSTIC para el texto: 'auto diagnostico'
+2026-06-07 15:43:21,850 INFO [OLLAMA RESPONSE] La IA respondió: Bienvenido a nuestro servicio de asistencia técnica! Entendemos que estás experimentando un problema con tu conexión inalámbrica y estamos aquí para ayudarte.
+
+Para beginniversary el diagnóstico, necesito saber más acerca del problema que estás experimentando. Por favor, proporciona más detalles sobre el problema, como por ejemplo, cuándo sucedió y si ha habido cambios recientes en tus equipos o servicios de red.
+
+¿Me avisas cuando lo hayas hecho?
+2026-06-07 15:45:55,618 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:45:55,618 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:46:00,621 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:46:00,622 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:46:04,622 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:46:04,623 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:46:05,624 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:46:05,625 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:46:41,623 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:46:41,624 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:47:02,626 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:47:02,627 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:47:15,628 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:47:15,629 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:47:18,624 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:47:18,625 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:48:13,641 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:48:13,642 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:48:16,624 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:48:16,625 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:50:37,819 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:50:37,820 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:50:38,178 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:50:38,179 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:50:46,926 INFO [MENSAJE USUARIO] Texto recibido: hola, que accioens puedo ahcer
+2026-06-07 15:51:43,617 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:51:43,618 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:51:48,281 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:51:48,283 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:52:20,327 INFO [MENSAJE USUARIO] Texto recibido: hola, que puedo hacer aqui
+2026-06-07 15:53:16,619 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:53:16,620 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:53:20,629 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:53:20,630 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:53:26,639 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:53:26,640 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:53:28,639 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:53:28,640 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:53:30,627 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:53:30,628 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:53:33,625 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:53:33,626 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:53:58,616 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:53:58,617 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:54:00,623 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:54:00,624 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:54:03,630 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:54:03,631 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:54:05,617 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:54:05,618 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:56:29,738 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:56:29,738 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:56:34,199 INFO [MENSAJE USUARIO] Texto recibido: hola, que puedo hacer aqui
+2026-06-07 15:58:41,269 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:58:41,271 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:58:43,613 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 15:58:43,614 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 15:58:46,146 INFO [MENSAJE USUARIO] Texto recibido: hola, que peudo hacer aqui
+2026-06-07 15:58:52,300 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_DIAGNOSTIC
+2026-06-07 15:58:52,301 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_DIAGNOSTIC para el texto: 'hola, que peudo hacer aqui'
+2026-06-07 15:59:05,450 INFO [OLLAMA RESPONSE] La IA respondió: Bienvenido al mundo de la diagnosticación de problemas de conexión de red! Asistente técnico experto, estoy aquí para ayudarte a diagnostar el problema que está experimentando nuestro cliente.
+
+Por favor, seleccione el manual adecuado según el problema que se presenta:
+
+* MANUAL A - Sin servicio / No conecta / Corte
+* MANUAL B - Lentitud / Baja velocidad / Lag
+* MANUAL C - Intermitencia (Cortes breves o fallas intermitentes)
+
+Por favor, indique el paso número 1 que deseamos seguir. ¿Ha reiniciado los equipos de red y verificado los cables?
+2026-06-07 15:59:54,819 INFO [MENSAJE USUARIO] Texto recibido: hola que peudo hacer aqui
+2026-06-07 15:59:54,819 INFO [ENRUTADOR] Action: auto_diagnostic | Step: troubleshooting | Text: hola que peudo hacer aqui
+2026-06-07 16:00:02,623 INFO [OLLAMA RESPONSE] La IA respondió: Asistente técnico experto: ¡Hola! Entendido, por favor seleccione el manual adecuado según el problema que se presenta: MANUAL A, B o C. ¿Ha reiniciado los equipos de red y verificado los cables? ¡Si no lo ha hecho, por favor, hazlo y avísame cuando lo haya hecho! 😊
+2026-06-07 16:00:19,302 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 16:00:19,303 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 16:00:20,891 INFO [MENSAJE USUARIO] Texto recibido: hola que peudo hacer aqui
+2026-06-07 16:00:24,123 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_CHECK_PLAN
+2026-06-07 16:00:24,124 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_CHECK_PLAN para el texto: 'hola que peudo hacer aqui'
