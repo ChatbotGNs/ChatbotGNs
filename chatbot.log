@@ -681,3 +681,150 @@
 2026-06-07 02:52:55,430 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
 2026-06-07 02:52:56,431 INFO Chatbot iniciado (modo fallback, sin LLM)
 2026-06-07 02:52:56,433 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 2, "categories": 4}
+2026-06-07 10:27:25,217 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 10:27:25,217 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 10:27:25,217 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 10:27:25,217 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 10:27:25,217 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 10:27:25,217 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 10:29:25,098 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 10:29:25,098 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 10:29:25,098 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 10:29:25,098 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 10:29:25,098 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 10:29:25,098 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 11:31:51,136 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 11:31:51,136 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 11:31:51,136 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 11:31:51,137 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 11:31:51,137 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 11:31:51,137 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 11:42:57,118 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 11:42:57,119 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 11:42:57,119 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 11:42:57,121 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 11:42:57,121 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 11:42:57,121 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 11:44:29,747 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 11:44:29,748 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 11:44:29,748 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 11:44:29,749 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 11:44:29,749 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 11:44:29,750 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 11:44:30,484 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 11:44:30,487 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 11:44:30,489 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 11:44:30,490 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 11:44:30,496 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 11:44:30,497 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 11:44:31,667 INFO [MENSAJE USUARIO] Texto recibido: Tengo problemas con mi internet, ¿me ayudas?
+2026-06-07 11:44:33,726 ERROR Error de Ollama API: {"error":"model '' not found"}
+2026-06-07 11:44:33,726 INFO [ENRUTAMIENTO LLM] Intención detectada: HUBO UN PROBLEMA PROCESANDO TU CONSULTA CON LA IA. para el texto: 'Tengo problemas con mi internet, ¿me ayudas?'
+2026-06-07 11:45:19,611 INFO [MENSAJE USUARIO] Texto recibido: 2
+2026-06-07 11:45:24,603 INFO [MENSAJE USUARIO] Texto recibido: 1241
+2026-06-07 11:46:39,781 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 11:46:39,781 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 11:46:39,781 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 11:46:39,782 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 11:46:39,782 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 11:46:39,782 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 11:46:39,790 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 11:46:39,791 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 11:46:39,791 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 11:46:39,791 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 11:46:39,793 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 11:46:39,793 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 11:46:40,494 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 11:46:40,497 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 11:46:40,497 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 11:46:40,498 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 11:46:40,500 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 11:46:40,507 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 11:46:43,086 INFO [MENSAJE USUARIO] Texto recibido: Tengo problemas con mi internet, ¿me ayudas?
+2026-06-07 11:47:31,619 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_DIAGNOSTIC
+2026-06-07 11:47:31,620 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_DIAGNOSTIC para el texto: 'Tengo problemas con mi internet, ¿me ayudas?'
+2026-06-07 11:47:40,516 INFO [OLLAMA RESPONSE] La IA respondió: Buen día, gracias por llegar a nosotros. Entiendo que estás experimentando problemas con tu internet. Por favor, sigue adelante y siguiendo las instrucciones del manual adecuado para su problema específico.
+
+Si el problema es "Sin servicio/No Conecta/Corte", te recomendamos seguir los pasos del Manual A: Reiniciar el módem y el router, verificar los cables conectados y comprobar las luces del módem.
+
+Si el problema es "Lentitud/Baja Velocidad/Lag", te recomendamos seguir los pasos del Manual B: Ejecutar un test de velocidad, reiniciar los equipos de red y reducir los dispositivos activos.
+
+Si el problema es "Intermitencia (Cortes breves o fallas intermitentes)", te recomendamos seguir los pasos del Manual C: Comprobar si el problema ocurre en un solo dispositivo o en varios, pedir al usuario que reproduce la falla y anote exactamente la hora en la que ocurre.
+
+Por favor, avísame cuando hayas realizado los pasos del manual adecuado para que pueda brindarte ayuda adicional.
+2026-06-07 11:48:52,333 INFO [MENSAJE USUARIO] Texto recibido: Mi problema es esatar sin servicio. Ya reinicé el modem y el router, y sí están conectados los cables. ¿Qué hago?
+2026-06-07 11:48:59,056 INFO [OLLAMA RESPONSE] La IA respondió: Buen día, gracias por informarnos que el problema persiste sin servicio después de reiniciar el módem y el router. Entiendo que has seguido los pasos del Manual A y B, pero el problema sigue presente.
+
+En este caso, te recomendamos seguir los pasos del Manual C: Comprobar si el problema ocurre en un solo dispositivo o en varios, pedir al usuario que reproduce la falla y anote exactamente la hora en la que ocurre.
+
+Por favor, avísame cuando hayas realizado este paso para que pueda brindarte ayuda adicional. Si el problema persiste después de seguir los pasos del Manual C, es posible que debamos llevar a cabo una revisión técnica más detallada para determinar la causa del problema y find a solution.
+
+¿Me avisas cuando hayas hecho esto?
+2026-06-07 11:49:17,576 INFO [MENSAJE USUARIO] Texto recibido: Ocurre en todos los dispositivos.
+2026-06-07 11:49:24,224 INFO [OLLAMA RESPONSE] La IA respondió: Buen día, gracias por informarnos que el problema persiste en todos los dispositivos. Entiendo que has seguido los pasos del Manual C y ahora necesitas nuestra ayuda adicional.
+
+Based on the information provided, it seems that the problem is likely related to a network configuration issue or a hardware problem with the modem or router. To help you further, I recommend scheduling a home visit with one of our technical experts. They will be able to perform a more detailed diagnostic and provide a solution to fix the issue.
+
+Please let me know if this is something you would like to proceed with, and we can schedule a time that works best for you. In the meantime, please do not make any changes to your network configuration or equipment.
+
+¿Me avisas cuando quieras programar la visita del técnico?
+2026-06-07 11:50:09,216 INFO [MENSAJE USUARIO] Texto recibido: Para mañana
+2026-06-07 11:50:16,392 INFO [OLLAMA RESPONSE] La IA respondió: Buen día, gracias por informarnos que quieres programar la visita del técnico para mañana. Entiendo que esto te permitirá solucionar el problema de manera más eficiente.
+
+Por favor, avísame cuando haya programado la visita del técnico para que pueda brindarte las instrucciones específicas para tu caso.
+
+En cuanto a los pasos siguientes, te recomiendo seguir con el Manual C: Comprobar si el problema ocurre en un solo dispositivo o en varios, pedir al usuario que reproduce la falla y anote exactamente la hora en la que ocurre.
+
+Una vez que hayas realizado este paso, podemos proceder con la revisión técnica más detallada para determinar la causa del problema y find a solution.
+
+¿Me avisas cuando hayas programado la visita del técnico?
+2026-06-07 11:50:31,105 INFO [MENSAJE USUARIO] Texto recibido: Ya la programé
+2026-06-07 11:50:38,116 INFO [OLLAMA RESPONSE] La IA respondió: Buen día, gracias por informarnos que has programado la visita del técnico para mañana. Entiendo que esto te permitirá solucionar el problema de manera más eficiente.
+
+En cuanto a los pasos siguientes, te recomiendo seguir con el Manual C: Comprobar si el problema ocurre en un solo dispositivo o en varios, pedir al usuario que reproduce la falla y anote exactamente la hora en la que ocurre.
+
+Una vez que hayas realizado este paso, podemos proceder con la revisión técnica más detallada para determinar la causa del problema y find a solution.
+
+Por favor, avísame cuando hayas realizado este paso para que pueda brindarte las instrucciones específicas para tu caso.
+
+¿Me avisas cuando hayas hecho esto?
+2026-06-07 11:51:01,472 INFO [MENSAJE USUARIO] Texto recibido: menu
+2026-06-07 11:51:01,472 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: auto_diagnostic
+2026-06-07 11:52:02,337 INFO [MENSAJE USUARIO] Texto recibido: Menú
+2026-06-07 12:18:06,101 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 12:18:06,101 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\tickets.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\tickets.json'"}
+2026-06-07 12:18:06,101 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\customers.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\customers.json'"}
+2026-06-07 12:18:06,101 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 12:18:06,101 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\Gustavo\\Src\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\Gustavo\\\\Src\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 12:18:06,101 INFO {"type": "local_data_load", "tickets": 0, "customers": 0, "comments": 0, "categories": 0}
+2026-06-07 12:18:10,935 INFO [MENSAJE USUARIO] Texto recibido: Quiero consultar mi plan actual
+2026-06-07 12:19:18,908 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_CHECK_PLAN
+2026-06-07 12:19:18,909 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_CHECK_PLAN para el texto: 'Quiero consultar mi plan actual'
+2026-06-07 12:19:26,630 INFO [MENSAJE USUARIO] Texto recibido: 11159843
+2026-06-07 12:19:27,299 INFO [API CALL] Consultando servicios para el cliente ID: 11159843
+2026-06-07 12:19:27,299 ERROR [API ERROR] Falló la consulta para 11159843.
+2026-06-07 12:19:33,075 INFO [MENSAJE USUARIO] Texto recibido: 2
+2026-06-07 12:19:37,097 INFO [MENSAJE USUARIO] Texto recibido: 11158734
+2026-06-07 12:19:41,882 INFO [MENSAJE USUARIO] Texto recibido: Menú
+2026-06-07 12:19:46,154 INFO [MENSAJE USUARIO] Texto recibido: Que
+2026-06-07 12:22:31,389 INFO [MENSAJE USUARIO] Texto recibido: hola
+2026-06-07 12:22:33,612 INFO [MENSAJE USUARIO] Texto recibido: 3
+2026-06-07 12:22:37,888 INFO [MENSAJE USUARIO] Texto recibido: Estado de mi ticket
+2026-06-07 12:22:40,224 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 12:22:40,224 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: check_ticket
+2026-06-07 12:22:54,449 INFO [MENSAJE USUARIO] Texto recibido: Tengo un problema con mi internet
+2026-06-07 12:23:07,074 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_DIAGNOSTIC
+2026-06-07 12:23:07,076 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_DIAGNOSTIC para el texto: 'Tengo un problema con mi internet'
+2026-06-07 12:23:12,604 INFO [OLLAMA RESPONSE] La IA respondió: Buen día, ¡entusiasmo! Entiendo que el cliente está experimentando problemas con su internet. Based en los manuales de diagnóstico proporcionados, seleccionaremos el manual adecuado según el problema reportado.
+
+Para este caso específico, seleccionaremos el Manual A - Sin Servicio / No Conecta / Corte. Paso 1: Reiniciar el módem y el router (desconectar de la corriente, esperar 10-15s y reconectar).
+
+¿Me avisas cuando lo hayas hecho?
+2026-06-07 12:30:07,817 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 12:30:07,817 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: auto_diagnostic
+2026-06-07 12:30:49,804 INFO [MENSAJE USUARIO] Texto recibido: Menu
+2026-06-07 12:31:25,263 INFO [MENSAJE USUARIO] Texto recibido: Ola
+2026-06-07 12:31:27,783 INFO [MENSAJE USUARIO] Texto recibido: Hello
+2026-06-07 12:31:30,632 INFO [MENSAJE USUARIO] Texto recibido: Translate
+2026-06-07 12:31:32,986 INFO [MENSAJE USUARIO] Texto recibido: 1
+2026-06-07 12:31:35,669 INFO [MENSAJE USUARIO] Texto recibido: Speak english
