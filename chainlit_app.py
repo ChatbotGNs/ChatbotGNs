@@ -12,19 +12,33 @@ import chainlit as cl
 from chatbot import Chatbot
 
 
+@cl.set_starters
+async def set_starters():
+    return [
+        cl.Starter(
+            label="Reportar Falla",
+            message="Tengo un problema con mi internet"
+        ),
+        cl.Starter(
+            label="Consultar Plan",
+            message="Quiero consultar mi plan actual"
+        ),
+        cl.Starter(
+            label="Diagnóstico rápido",
+            message="Mi internet está lento o fallando, ¿qué puedo hacer para diagnosticar el problema?"
+        ),
+        cl.Starter(
+            label="Hablar con Técnico",
+            message="Quiero hablar con un técnico"
+        ),
+    ]
+
+
+
 @cl.on_chat_start
 async def start():
     # Instanciar por cada sesión de usuario y guardarlo en el estado
     cl.user_session.set("bot", Chatbot())
-    # --- NUEVO: Mensaje de bienvenida automático ---
-    mensaje_bienvenida = (
-        "¡Hola! Soy ChatGNs, tu asistente de soporte técnico. \n\n"
-        "Estoy aquí para ayudarte a resolver problemas con tu red, revisar tus tickets "
-        "o contactarte con un ingeniero.\n\n"
-        "Escribe **hola** o **menú** para ver las opciones disponibles o dime cual es el problema que tienes"
-    )
-    
-    await cl.Message(content=mensaje_bienvenida).send()
 
 # Helper seguro para enviar mensajes y botones compatible con distintas versiones de Chainlit
 async def safe_send(content: str | None = None, buttons: list | None = None):

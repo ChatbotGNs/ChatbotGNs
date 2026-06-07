@@ -1,14 +1,12 @@
-# Welcome to Chainlit! 🚀🤖
+# Bienvenido a ChatGNs 🤖
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
+Soy tu asistente virtual de soporte técnico. Estoy aquí para ayudarte a resolver problemas con tu red, revisar tus tickets o contactarte con un ingeniero.
 
-## Useful Links 🔗
+### 📌 ¿Cómo empezar?
+Para interactuar conmigo, puedes usar el cuadro de texto de abajo y escribir cosas como:
+- **"Hola"** o **"Menú"** para ver las opciones principales.
+- **"Tengo un problema con mi internet"** para iniciar un diagnóstico.
+- **"Estado de mi ticket"** para consultar un folio existente.
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
-
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
-
-## Welcome screen
-
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+---
+*Si tu problema es urgente, por favor ten a la mano tu número de cliente.*

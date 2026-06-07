@@ -200,3 +200,407 @@
 2026-06-06 22:30:51,079 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
 2026-06-06 22:30:51,080 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
 2026-06-06 22:30:51,080 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:18:15,870 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:18:15,871 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:18:15,871 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:18:15,871 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:18:16,376 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:18:16,377 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:18:16,377 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:18:16,377 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:18:21,790 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:18:21,790 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:18:21,790 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:18:21,790 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:19:08,518 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:19:08,519 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:19:08,520 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:19:08,520 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:19:12,170 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:19:12,170 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:19:12,171 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:19:12,171 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:20:50,441 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:20:50,442 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:20:50,442 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:20:50,442 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:20:51,428 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:20:51,428 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:20:51,428 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:20:51,428 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:21:00,713 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:21:00,715 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:21:00,715 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:21:00,715 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:21:01,431 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:21:01,432 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:21:01,432 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:21:01,432 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:21:12,159 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:21:12,160 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:21:12,160 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:21:12,160 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:23:20,806 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:23:20,806 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:23:20,806 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:23:20,806 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:23:29,072 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:23:29,073 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:23:29,073 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:23:29,073 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:23:35,071 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:23:35,072 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:23:35,073 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:23:35,073 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:26:59,356 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:26:59,357 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:26:59,357 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:26:59,357 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:27:13,137 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:27:13,137 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:27:13,138 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:27:13,138 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:28:23,365 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:28:23,366 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:28:23,366 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:28:23,366 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:35:23,488 INFO {"type": "kb_query", "query": "Estado de mi ticket", "status_code": 404, "response": {"message": "Endpoint inválido", "code": 404}}
+2026-06-06 23:35:23,503 INFO {"ts": "2026-06-07T05:35:23.503421Z", "user": "Estado de mi ticket", "bot": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file.", "kb_status": 404}
+2026-06-06 23:35:23,513 INFO {"type": "escalation_decision", "decision_text": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file."}
+2026-06-06 23:40:27,432 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:40:27,441 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:40:27,442 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:40:27,442 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:40:41,064 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:40:41,065 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:40:41,065 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:40:41,065 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:40:57,427 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:40:57,429 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:40:57,429 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:40:57,429 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:09,420 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:09,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:09,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:09,421 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:16,419 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:16,420 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:16,420 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:16,420 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:20,431 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:20,432 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:20,432 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:20,433 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:21,436 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:21,437 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:21,437 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:21,437 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:34,438 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:34,438 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:34,438 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:34,438 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:39,408 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:39,410 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:39,410 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:39,410 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:40,424 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:40,425 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:40,425 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:40,425 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:51,426 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:51,426 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:51,427 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:51,427 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:54,430 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:54,431 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:54,431 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:54,431 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:41:59,418 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:41:59,419 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:41:59,419 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:41:59,419 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:42:01,911 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:42:01,912 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:42:01,912 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:42:01,912 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:42:30,127 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-06 23:42:30,128 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-06 23:42:30,128 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-06 23:42:30,128 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-06 23:42:38,682 INFO {"type": "kb_query", "query": "Estado de mi ticket", "status_code": 404, "response": {"message": "Endpoint inválido", "code": 404}}
+2026-06-06 23:42:38,694 INFO {"ts": "2026-06-07T05:42:38.694610Z", "user": "Estado de mi ticket", "bot": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file.", "kb_status": 404}
+2026-06-06 23:42:38,703 INFO {"type": "escalation_decision", "decision_text": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file."}
+2026-06-07 00:22:04,798 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:22:04,799 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:22:04,800 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:22:04,800 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:31:06,381 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:31:06,381 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:31:06,381 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:31:06,381 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:31:47,421 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:31:47,422 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:31:47,422 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:31:47,422 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:31:51,422 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:31:51,423 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:31:51,423 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:31:51,423 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:33:10,602 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:33:10,603 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:33:10,603 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:33:10,603 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:33:34,939 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:33:34,939 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:33:34,940 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:33:34,940 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:33:36,537 INFO {"type": "kb_query", "query": "Quiero consultar mi plan actual", "status_code": 404, "response": {"message": "Endpoint inválido", "code": 404}}
+2026-06-07 00:33:36,553 INFO {"ts": "2026-06-07T06:33:36.553833Z", "user": "Quiero consultar mi plan actual", "bot": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file.", "kb_status": 404}
+2026-06-07 00:33:36,562 INFO {"type": "escalation_decision", "decision_text": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file."}
+2026-06-07 00:34:16,415 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:34:16,416 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:34:16,416 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:34:16,416 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:34:25,652 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:34:25,653 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:34:25,653 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:34:25,653 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:35:02,420 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:35:02,420 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:35:02,420 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:35:02,421 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:35:54,795 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:35:54,796 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:35:54,796 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:35:54,796 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:36:42,428 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:36:42,429 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:36:42,429 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:36:42,429 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:37:15,417 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:37:15,417 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:37:15,418 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:37:15,418 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:37:57,419 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:37:57,419 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:37:57,419 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:37:57,419 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:37:59,425 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:37:59,426 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:37:59,426 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:37:59,427 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:42:24,255 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:42:24,255 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:42:24,255 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:42:24,255 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:42:24,414 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:42:24,415 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:42:24,415 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:42:24,415 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:43:00,387 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:43:00,388 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:43:00,388 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:43:00,388 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:48:03,430 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:48:03,431 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:48:03,431 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:48:03,431 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:48:44,412 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:48:44,413 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:48:44,413 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:48:44,414 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:48:50,314 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:48:50,315 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:48:50,315 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:48:50,315 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:50:07,495 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:50:07,496 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:50:07,496 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:50:07,496 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:50:30,415 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:50:30,416 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:50:30,416 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:50:30,416 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:50:56,420 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:50:56,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:50:56,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:50:56,421 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 00:51:24,420 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 00:51:24,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 00:51:24,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 00:51:24,421 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:07:44,896 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:07:44,897 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:07:44,897 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:07:44,897 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:09:47,423 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:09:47,423 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:09:47,423 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:09:47,423 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:10:18,429 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:10:18,431 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:10:18,431 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:10:18,431 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:10:29,427 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:10:29,427 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:10:29,427 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:10:29,427 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:10:31,215 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:10:31,216 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:10:31,216 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:10:31,216 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:12:22,432 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:12:22,433 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:12:22,433 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:12:22,434 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:13:22,722 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:13:22,722 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:13:22,722 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:13:22,723 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:13:32,428 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:13:32,429 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:13:32,429 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:13:32,430 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:13:42,418 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:13:42,419 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:13:42,419 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:13:42,419 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:13:53,421 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:13:53,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:13:53,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:13:53,421 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:14:06,428 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:14:06,428 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:14:06,428 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:14:06,428 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:14:17,426 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:14:17,427 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:14:17,427 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:14:17,427 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:14:19,418 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:14:19,418 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:14:19,419 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:14:19,419 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:14:27,413 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:14:27,415 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:14:27,415 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:14:27,415 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:14:29,421 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:14:29,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:14:29,422 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:14:29,422 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:14:46,414 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:14:46,415 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:14:46,415 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:14:46,415 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:17:13,413 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:17:13,413 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:17:13,413 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:17:13,413 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:17:39,421 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:17:39,422 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:17:39,422 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:17:39,422 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:19:39,473 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:19:39,475 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:19:39,476 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:19:39,476 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:20:58,436 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:20:58,437 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:20:58,437 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:20:58,437 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:21:01,664 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:21:01,666 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:21:01,667 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:21:01,667 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:21:18,422 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:21:18,423 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:21:18,423 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:21:18,423 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:21:28,423 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:21:28,424 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:21:28,424 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:21:28,424 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:21:54,426 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:21:54,427 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:21:54,427 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:21:54,427 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:21:55,420 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:21:55,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:21:55,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:21:55,421 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:25:31,428 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:25:31,429 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:25:31,429 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:25:31,429 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:25:45,428 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:25:45,428 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:25:45,428 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:25:45,428 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:25:52,420 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:25:52,420 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:25:52,420 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:25:52,420 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:26:08,419 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:26:08,420 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:26:08,420 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:26:08,420 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:26:10,416 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:26:10,417 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:26:10,417 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:26:10,417 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:26:27,413 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:26:27,414 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:26:27,414 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:26:27,414 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:26:30,421 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:26:30,422 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:26:30,422 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:26:30,422 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:26:35,421 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:26:35,421 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:26:35,422 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:26:35,422 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:27:43,396 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:27:43,397 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:27:43,398 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:27:43,398 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:27:45,486 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:27:45,487 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:27:45,487 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:27:45,487 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:29:28,446 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:29:28,447 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:29:28,447 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:29:28,447 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:29:56,416 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:29:56,417 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:29:56,417 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:29:56,417 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:30:01,426 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:30:01,427 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:30:01,427 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:30:01,427 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:30:11,432 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:30:11,432 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:30:11,432 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:30:11,432 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:32:27,436 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:32:27,437 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:32:27,438 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:32:27,438 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:32:30,440 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:32:30,441 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:32:30,442 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:32:30,443 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:32:32,587 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:32:32,587 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:32:32,587 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:32:32,587 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:42:59,988 INFO Chatbot iniciado (modo fallback, sin LLM)
+2026-06-07 01:42:59,989 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\comments.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\comments.json'"}
+2026-06-07 01:42:59,989 ERROR {"type": "local_data_load_error", "path": "C:\\Users\\edgar\\Documents\\VsCode\\ChatbotGNs\\categories.json", "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\edgar\\\\Documents\\\\VsCode\\\\ChatbotGNs\\\\categories.json'"}
+2026-06-07 01:42:59,989 INFO {"type": "local_data_load", "tickets": 2, "customers": 2, "comments": 0, "categories": 0}
+2026-06-07 01:43:04,529 INFO {"type": "kb_query", "query": "Mi internet está lento o fallando, ¿qué puedo hacer para diagnosticar el problema?", "status_code": 404, "response": {"message": "Endpoint inválido", "code": 404}}
+2026-06-07 01:43:04,545 INFO {"ts": "2026-06-07T07:43:04.545423Z", "user": "Mi internet está lento o fallando, ¿qué puedo hacer para diagnosticar el problema?", "bot": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file.", "kb_status": 404}
+2026-06-07 01:43:04,554 INFO {"type": "escalation_decision", "decision_text": "Error de Ollama: 'ollama' is not recognized as an internal or external command,\noperable program or batch file."}

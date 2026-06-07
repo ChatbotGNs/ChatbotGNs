@@ -6,6 +6,7 @@ import json
 import logging
 from datetime import datetime
 import subprocess
+import re
 
 # LangChain intentionally disabled to avoid import errors in environments
 # where langchain/OpenAI are not available. The chatbot will run in a
@@ -21,7 +22,7 @@ class Chatbot:
         bot = Chatbot()
         bot.ask("Hola")
     """
-
+    #TODO: revisar pq esta el str en el gpt turbo, si usamos el ollama
     def __init__(self, temperature: float = 0.2, model: str = "gpt-3.5-turbo"):
         load_dotenv()
         api_key = os.getenv("OPENAI_API_KEY")
@@ -68,6 +69,9 @@ class Chatbot:
         # Estado simple para flujos interactivos (por ejemplo, diagnóstico paso a paso)
         self.pending_action = None
 
+
+        self.current_flow = None
+
     def _load_local_data(self):
         def _load(path):
             try:
@@ -102,35 +106,276 @@ class Chatbot:
         self.categories = _load(self.categories_path)
         self.logger.info(json.dumps({"type": "local_data_load", "tickets": len(self.tickets), "customers": len(self.customers), "comments": len(self.comments), "categories": len(self.categories)}, ensure_ascii=False))
 
-    def _find_ticket(self, ticket_id: str):
-        for t in self.tickets:
-            # buscar por id o por clave 'ticket_id'
-            if str(t.get("id", t.get("ticket_id", ""))) == str(ticket_id):
-                return t
-        return None
 
-    def _get_customer_segment(self, customer_id: str):
-        # Buscar varios nombres de campo comunes para el id del cliente
-        for c in self.customers:
-            # posibles claves que representan el id del cliente
-            candidates = [c.get("id"), c.get("customer_id"), c.get("idCustomer"), c.get("customerId"), c.get("id_customer")]
-            for v in candidates:
-                if v is None:
-                    continue
-                try:
-                    if str(v) == str(customer_id):
-                        # posibles campos que indican segmento/ tipo
-                        return (
-                            c.get("segment")
-                            or c.get("segmento")
-                            or c.get("category")
-                            or c.get("type")
-                            or c.get("group")
-                            or "unknown"
-                        )
-                except Exception:
-                    continue
-        return "unknown"
+    # Actual function
+    def _handle_menu_flows(self, text: str) -> str:
+        """
+        Maneja la lógica cuando el usuario está a la mitad de una opción del menú.
+        Actúa como un enrutador hacia las funciones específicas.
+        """
+        # Permitir al usuario cancelar el flujo en cualquier momento
+        if text.lower() in ["cancelar", "salir", "menu", "menú", "regresar"]:
+            self.current_flow = None
+            return "Operación cancelada. ¿En qué más puedo ayudarte? (Escribe 'menú' para ver opciones)"
+
+        action = self.current_flow.get("action")
+        step = self.current_flow.get("step")
+        
+        # Enrutar a la función correspondiente
+        if action == "check_plan":
+            return self._handle_check_plan_flow(text)    
+        elif action == "report_issue":
+            return self._handle_report_issue_flow(text, step)
+        elif action == "auto_diagnostic":
+            return self._handle_auto_diagnostic_flow(text, step)
+        
+        # Si no coincide con nada
+        self.current_flow = None
+        return "Flujo terminado con errores o no reconocido."
+
+    def _handle_check_plan_flow(self, text: str) -> str:
+        """
+        Sub-flujo para manejar la consulta del plan y saldo del cliente.
+        """
+        if not text.strip().isdigit():
+            return "Por favor, ingresa únicamente números para tu ID de Cliente:"
+        
+        customer_id = text.strip()
+        self.current_flow = None # Limpiamos estado inmediatamente
+        
+        # 1. Buscamos sus servicios
+        servicios_res = self._get_services_by_customer(customer_id)
+        if not servicios_res.get("success"):
+            return "No pude encontrar servicios activos para ese número de cliente."
+        
+        # 2. Buscamos su saldo
+        saldo_res = self._get_balance_by_customer(customer_id)
+        
+        json_servicios = servicios_res.get("data", {})
+        mensaje = f"**Información de tu Plan (Cliente {customer_id}):**\n"
+        
+        lista_servicios = []
+        if isinstance(json_servicios, list):
+            lista_servicios = json_servicios
+        elif isinstance(json_servicios, dict):
+            # Busca llaves comunes donde las APIs guardan listas de datos
+            lista_servicios = json_servicios.get("services", json_servicios.get("servicios", json_servicios.get("data", [])))
+            # Si no encontró ninguna lista interna, metemos el dict en una lista
+            if not lista_servicios and json_servicios:
+                lista_servicios = [json_servicios]
+
+        if lista_servicios:
+            for s in lista_servicios:
+                if isinstance(s, dict): # Doble verificación de seguridad
+                    nombre_servicio = s.get("service", s.get("name", "Desconocido"))
+                    estatus = s.get("status", "N/A")
+                    expiracion = s.get("date_expiration", s.get("expiration_date", "N/A"))
+                    mensaje += f"Paquete: {nombre_servicio}\n  Estatus: {estatus}\n  Expiración: {expiracion}\n\n"
+        else:
+            mensaje += "No se encontraron servicios activos registrados.\n\n"   
+        
+        if saldo_res.get("success"):
+            json_saldo = saldo_res.get("data", {})
+            
+            # Si por alguna razón el saldo viene en lista, extraemos el primero
+            if isinstance(json_saldo, list) and len(json_saldo) > 0:
+                json_saldo = json_saldo[0]
+            
+            if isinstance(json_saldo, dict):
+                saldo = json_saldo.get("total_to_pay", "0.00")
+                package_price = json_saldo.get("package_price", "0.00")
+                due_date = json_saldo.get("due_date", "N/A")
+                mensaje += f"**Costo del plan:** ${package_price}\n**Saldo pendiente:** ${saldo}\n**Fecha límite de pago:** {due_date}\n"
+            else:
+                mensaje += "No se pudo interpretar el formato del saldo.\n"
+        else:
+            mensaje += "No se pudo consultar el saldo pendiente en este momento.\n"
+        
+        return mensaje
+    
+    def _handle_report_issue_flow(self, text: str, step: str) -> str:
+        """
+        Sub-flujo interactivo paso a paso para reportar una falla técnica.
+        """
+        # PASO 1: Pedir ID de Cliente para buscar el idCustomerPackage en la API
+        if step == "get_customer_id":
+            if not text.strip().isdigit():
+                return "Ingresa tu ID de Cliente (solo números):"
+            
+            customer_id = text.strip()
+            
+            # Vamos a la API a buscar los servicios de este cliente
+            servicios_res = self._get_services_by_customer(customer_id)
+            if not servicios_res.get("success") or not servicios_res.get("data"):
+                self.current_flow = None
+                return "No encontré un servicio asociado a ese ID de Cliente. Operación cancelada."
+            
+            # Acceso seguro al JSON según tu estructura
+            try:
+                datos_api = servicios_res["data"]
+                if isinstance(datos_api, dict) and "idPackage" in datos_api:
+                    primer_servicio = datos_api["idPackage"]
+                elif isinstance(datos_api, list) and len(datos_api) > 0:
+                    primer_servicio = datos_api[0].get("idPackage", datos_api[0])
+                else:
+                    primer_servicio = datos_api
+                
+                id_paquete = primer_servicio.get("id") if isinstance(primer_servicio, dict) else primer_servicio
+            except Exception:
+                self.current_flow = None
+                return "Hubo un problema al interpretar los datos del servicio. Operación cancelada."
+            
+            if not id_paquete:
+                self.current_flow = None
+                return "No se pudo extraer el ID del paquete de servicio. Operación cancelada."
+
+            # Guardamos el idCustomerPackage requerido por la API de tickets
+            self.current_flow["payload"]["idCustomerPackage"] = int(id_paquete)
+            self.current_flow["step"] = "problem"
+    
+            return "Servicio localizado. Ahora, por favor **describe brevemente la falla** que presentas:"
+
+        # PASO 2: Capturar el problema
+        elif step == "problem":
+            if len(text.strip()) < 5:
+                return "Por favor, sé un poco más descriptivo con el problema:"
+            
+            self.current_flow["payload"]["problem"] = text.strip()
+            self.current_flow["step"] = "contact_name"
+            return "Gracias. ¿Cuál es el **nombre de la persona de contacto**? (o escribe **'saltar'** o **'siguiente'** para dejarlo vacío)"
+
+        # PASO 3: Capturar el nombre de contacto (OPCIONAL)
+        elif step == "contact_name":
+            entrada = text.strip()
+            if entrada.lower() in ["saltar", "siguiente", "omitir", "no", "vacio", "vacío"]:
+                self.current_flow["payload"]["contact_name"] = "No especificado"
+            else:
+                self.current_flow["payload"]["contact_name"] = entrada
+            
+            self.current_flow["step"] = "phone_number"
+            return "Anotado. ¿A qué **número de teléfono** podemos comunicarnos contigo? (o escribe **'saltar'** o **'siguiente'** para dejarlo vacío)"
+
+        # PASO 4: Capturar el teléfono (OPCIONAL)
+        elif step == "phone_number":
+            entrada = text.strip()
+            if entrada.lower() in ["saltar", "siguiente", "omitir", "no", "vacio", "vacío"]:
+                self.current_flow["payload"]["phone_number"] = "No especificado"
+            else:
+                if len(entrada) < 7 or not entrada.isdigit():
+                    return "Ese no parece un número de teléfono válido. Por favor ingresa solo números o escribe **'saltar'**:"
+                self.current_flow["payload"]["phone_number"] = entrada
+            
+            self.current_flow["step"] = "visit_date"
+            return "Casi terminamos. Si necesitaras una visita técnica, ingresa una **fecha sugerida para esta** (ej. 2026-06-15). Si no, escribe **'saltar'**."
+
+        # PASO 5: Capturar la fecha y ENVIAR EL TICKET
+        elif step == "visit_date":
+            entrada = text.strip()
+            if entrada.lower() in ["saltar", "siguiente", "no", "ninguna", "omitir", "vacio"]:
+                self.current_flow["payload"]["visit_date"] = None
+            else:
+                import re
+                if not re.match(r"^\d{4}-\d{2}-\d{2}$", entrada):
+                    return "El formato de la fecha no es válido. Debe ser **YYYY-MM-DD** (ejemplo: 2026-06-15) o escribe 'saltar':"
+                self.current_flow["payload"]["visit_date"] = entrada
+
+            # ---- ¡PROCESO DE ENVÍO! ----
+            # 1. Asignamos la categoría por defecto
+            self.current_flow["payload"]["idCategory"] = int(os.getenv("DEFAULT_ID_CATEGORY", 9))
+            
+            final_payload = self.current_flow["payload"]
+            self.current_flow = None # Liberamos el bot de inmediato
+            
+            # TODO: Cambiarlo a la correcta después de test
+            return self._submit_new_ticket_local(final_payload)
+
+        return "Error interno en los pasos del reporte."
+
+    #Local function
+    def _submit_new_ticket_local(self, payload: dict) -> str:
+        """
+        Guarda el ticket de manera local en un archivo JSON para pruebas.
+        """
+        try:
+            # Tu lógica actual para guardar el archivo JSON (si aplica)
+            archivo_tickets = "tickets_locales.json"
+            
+            # Cargar existentes
+            tickets = []
+            if os.path.exists(archivo_tickets):
+                with open(archivo_tickets, "r", encoding="utf-8") as f:
+                    try:
+                        tickets = json.load(f)
+                    except Exception:
+                        tickets = []
+
+            with open(archivo_tickets, "w", encoding="utf-8") as f:
+                json.dump(tickets, f, indent=4, ensure_ascii=False)
+            
+            # 🚨 ¡ESTA ES LA LÍNEA CRUCIAL QUE FALTA O ESTÁ FALLANDO! 🚨
+            return "✅ **¡Falla reportada con éxito de manera local!**\nTu reporte ha sido registrado en nuestro sistema de pruebas.\nUn técnico revisará tu caso pronto."
+            
+        except Exception as e:
+            self.logger.error(f"Error en _submit_new_ticket_local: {e}")
+            return f"❌ Ocurrió un error local al guardar el ticket: {e}"
+
+    #Actual funtcion
+    def _submit_new_ticket(self, payload: dict) -> str:
+        """
+        Envía el JSON validado al endpoint de creación de tickets basándose en los Body Params oficiales.
+        """
+        # Limpiar valores nulos para no enviar campos vacíos si la API es estricta
+        clean_payload = {k: v for k, v in payload.items() if v is not None}
+        
+        try:
+            # Aquí asumo que el endpoint es /tickets, ajústalo si es diferente
+            url = f"{self.partner_base.rstrip('/')}/tickets"
+            headers = {"Content-Type": "application/json"}
+            if self.partner_key:
+                headers["Authorization"] = f"Bearer {self.partner_key}"
+
+            # Hacemos la petición POST
+            response = requests.post(url, headers=headers, json=clean_payload, auth=self.auth, timeout=10)
+            
+            if response.status_code in [200, 201]:
+                # Éxito: Puedes extraer el ID del ticket de la respuesta si tu API lo devuelve
+                data = response.json()
+                ticket_id = data.get("idTicket", "desconocido")
+                return f"**¡Falla reportada con éxito!**\nTu reporte ha sido registrado con el número de ticket: **{ticket_id}**.\nUn técnico revisará tu caso pronto. \n Tambien podemos intentar diagnosticar lo que esta fallando para solucionarlo"
+            else:
+                self.logger.error(f"Error creando ticket. HTTP {response.status_code}: {response.text}")
+                return f"Recibimos tus datos, pero hubo un problema al guardarlos en el sistem. Intenta de nuevo más tarde o comunicate directamente con un Tecnico."
+                
+        except Exception as e:
+            self.logger.error(f"Excepción al crear ticket: {e}")
+            return "El sistema no está disponible en este momento. Intenta más tarde."
+
+    def _get_services_by_customer(self, customer_id: str) -> dict:
+        """Llama al endpoint GET Obtener servicios por ID del cliente."""
+        # Ajusta la ruta exacta de tu API
+        url = f"{self.partner_base.rstrip('/')}/services/{customer_id}"
+        headers = {"Authorization": f"Bearer {self.partner_key}"} if self.partner_key else {}
+        
+        try:
+            response = requests.get(url, headers=headers, auth=self.auth, timeout=10)
+            if response.status_code == 200:
+                return {"success": True, "data": response.json()}
+            return {"success": False, "error": f"Error {response.status_code}"}
+        except Exception as e:
+            return {"success": False, "error": str(e)}
+
+    def _get_balance_by_customer(self, customer_id: str) -> dict:
+        """Llama al endpoint GET Obtener saldo a pagar por ID del Cliente."""
+        url = f"{self.partner_base.rstrip('/')}/total-to-pay/{customer_id}"
+        headers = {"Authorization": f"Bearer {self.partner_key}"} if self.partner_key else {}
+        
+        try:
+            response = requests.get(url, headers=headers, auth=self.auth, timeout=10)
+            if response.status_code == 200:
+                return {"success": True, "data": response.json()}
+            return {"success": False, "error": f"Error {response.status_code}"}
+        except Exception:
+            return {"success": False, "error": "Error de conexión"}
 
     def _diagnostic_flow(self, message: str) -> dict:
         """Flujo de diagnóstico simplificado que devuelve un dict con steps y severity.
@@ -168,6 +413,152 @@ class Chatbot:
             severity = "low"
 
         return {"steps": steps, "severity": severity}
+
+    
+    def _handle_auto_diagnostic_flow(self, text: str, step: str) -> str:
+        """
+        Maneja la conversación de ida y vuelta con el LLM, manteniendo un contexto local.
+        """
+        # El usuario siempre puede forzar la salida
+        if text.lower() in ["cancelar", "salir", "menu", "menú", "humano", "asesor"]:
+            self.current_flow = None
+            return "Entendido. Si el problema continúa, te sugiero presionar la Opción 2 para levantar un ticket de falla formal."
+
+        if step == "ask_problem":
+            # 1. Guardamos el problema inicial
+            self.current_flow["problem"] = text
+            self.current_flow["step"] = "troubleshooting"
+            
+            # 2. Le pedimos a la IA que inicie el diagnóstico
+            prompt = self._build_diagnostic_prompt(problem=text)
+            respuesta_ai = self._run_llm(prompt) # Llama a tu función de Ollama
+            
+            # 3. Guardamos esto en la memoria temporal del flujo
+            self.current_flow["history"] = f"Usuario: {text}\nAsistente: {respuesta_ai}\n"
+            
+            return respuesta_ai
+
+        elif step == "troubleshooting":
+            problema_original = self.current_flow["problem"]
+            historial_previo = self.current_flow["history"]
+            
+            # 1. Le pasamos todo el contexto a la IA junto con la nueva respuesta del usuario
+            nuevo_prompt = self._build_diagnostic_prompt(
+                problem=problema_original, 
+                history=historial_previo, 
+                new_input=text
+            )
+            
+            respuesta_ai = self._run_llm(nuevo_prompt)
+            
+            # ==========================================
+            # EL INTERCEPTOR: ¿La IA decidió que ya no puede más?
+            # ==========================================
+            if "ACCION_ESCALAR" in respuesta_ai or "accion_escalar" in respuesta_ai.lower():
+                self.current_flow = None # Limpiamos el flujo de diagnóstico
+                
+                # Aquí lo mandamos mágicamente al flujo de "Reportar Falla" para pedirle sus datos
+                return (
+                    "Parece que los pasos básicos no resolvieron el problema. "
+                    "Vamos a transferir este caso a nuestros ingenieros.\n\n"
+                    "Para levantar tu reporte oficial, por favor escribe el número **2** (o selecciona 'Reportar Falla' en el menú)."
+                )
+            
+            # Si la IA sigue diagnosticando, guardamos la plática y respondemos
+            self.current_flow["history"] += f"Usuario: {text}\nAsistente: {respuesta_ai}\n"
+            
+            return respuesta_ai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def _get_customer_segment(self, customer_id: str):
+        # Buscar varios nombres de campo comunes para el id del cliente
+        for c in self.customers:
+            # posibles claves que representan el id del cliente
+            candidates = [c.get("id"), c.get("customer_id"), c.get("idCustomer"), c.get("customerId"), c.get("id_customer")]
+            for v in candidates:
+                if v is None:
+                    continue
+                try:
+                    if str(v) == str(customer_id):
+                        # posibles campos que indican segmento/ tipo
+                        return (
+                            c.get("segment")
+                            or c.get("segmento")
+                            or c.get("category")
+                            or c.get("type")
+                            or c.get("group")
+                            or "unknown"
+                        )
+                except Exception:
+                    continue
+        return "unknown"
 
     def _should_auto_escalate_by_segment(self, customer_id: str) -> bool:
         seg = str(self._get_customer_segment(customer_id)).lower()
@@ -416,28 +807,59 @@ class Chatbot:
                 except Exception:
                     continue
         return None
+    
+    # Helper corto: detectar que el usuario indica que no puede o quiere ayuda
+    def _user_needs_assistance(txt: str) -> bool:
+        low = (txt or "").lower()
+        triggers = [
+            "no puedo", "no sé", "no se", "no tengo", "no puedo hacerlo", "no entiendo",
+            "necesito ayuda", "me ayudas", "ayuda", "no tengo acceso", "no tengo permisos",
+            "no quiero", "no puedo seguir"
+        ]
+        return any(t in low for t in triggers)
 
     def ask(self, message: str) -> str:
         """Send a message to the chatbot and return the response. También decide si escalar y hace POST si es necesario."""
         text = message.strip()
+        low_text = message.lower()
 
-        # Helper corto: detectar que el usuario indica que no puede o quiere ayuda
-        def _user_needs_assistance(txt: str) -> bool:
-            low = (txt or "").lower()
-            triggers = [
-                "no puedo", "no sé", "no se", "no tengo", "no puedo hacerlo", "no entiendo",
-                "necesito ayuda", "me ayudas", "ayuda", "no tengo acceso", "no tengo permisos",
-                "no quiero", "no puedo seguir"
-            ]
-            return any(t in low for t in triggers)
+        # 1. Primero revisamos si el usuario YA estaba a la mitad de un flujo
+        # (Es decir, si el bot ya le había pedido el ticket antes)
+        if self.current_flow is not None:
+            return self._handle_menu_flows(message)
 
-        # Responder 'menu' localmente (no consultar KB)
+        # 2. AQUÍ ESTÁ EL DISPARADOR DEL BOTÓN
+        # Si el usuario picó el botón en la web o escribió "1" en la terminal
+        if low_text in ["1", "opción 1", "reportar falla", "reportar", "tengo un problema con mi internet"]:
+            # Inicializamos el estado para reportar falla, indicando el primer paso
+            # y creando un diccionario vacío "payload" para guardar los datos.
+            self.current_flow = {
+                "action": "report_issue",
+                "step": "get_customer_id",
+                "payload": {}
+            }
+            return "Has elegido Reportar Falla.\n\nPara empezar, por favor ingresa tu **ID de Cliente**:"
+
+        # 2. INTERCEPTAR BOTONES O PALABRAS CLAVE DEL MENÚ
+        if low_text in ["2", "gestión de cuenta", "opción 2", "consultar plan", "quiero consultar mi plan actual"]:
+            self.current_flow = {"action": "check_plan"}
+            return "Has elegido Consultar Plan y Saldo.\n\nPor favor, ingresa tu **ID de Cliente**:"
+
+        if low_text in ["3", "opción 3", "soporte", "auto diagnostico", "diagnóstico"]:
+            self.current_flow = {
+                "action": "auto_diagnostic",
+                "step": "ask_problem",
+                "history": "" # Aquí guardaremos la memoria de la plática
+            }
+            return "Has elegido Auto-Diagnóstico / Soporte Técnico.\n\nPor favor, **descríbeme con detalle cuál es el problema** que tienes con tu servicio:"
+
+       # Responder 'menu' localmente (no consultar KB)
         if text.lower() in ("menu", "help", "inicio"):
             return (
                 "¿Qué necesitas?\n"
                 "1) Estado de ticket — 'ticket <id>'\n"
                 "2) Diagnóstico rápido — 'diagnosticar <descripción>'\n"
-                "3) Información de cuenta — 'cuenta <id_cliente>'\n"
+                "3) consultar plan — 'cuenta <id_cliente>'\n"
                 "4) Pedir asistencia remota — 'asistencia <id_cliente>'\n\n"
                 "Responde con el número o el comando. Escribe 'más' para detalles."
             )

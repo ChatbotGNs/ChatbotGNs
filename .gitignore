@@ -10,7 +10,6 @@ __pycache__/
 *.pyc
 
 .flies
-.chainlit
 
 customers.json
 tickets.json
