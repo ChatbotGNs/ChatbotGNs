@@ -1,4 +1,11 @@
-langchain>=0.0.300
-openai>=0.27.0
-python-dotenv>=1.0.0
+# Interfaz Web y Servidor
+chainlit>=1.1.300
+uvicorn>=0.25.0
+
+# Conectividad y APIs Externas
 requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Inteligencia Artificial (Opcional - Solo si reactivas LangChain en el futuro)
+# langchain>=0.1.0
+# openai>=1.0.0pip install --upgrade --force-reinstall -r requirements.txt

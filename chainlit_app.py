@@ -11,69 +11,54 @@ import asyncio
 import chainlit as cl
 from chatbot import Chatbot
 
-# Instanciar una sola vez para reutilizar estado y cachés locales
-bot = Chatbot()
+
+@cl.set_starters
+async def set_starters():
+    return [
+        cl.Starter(
+            label="Reportar Falla",
+            message="Tengo un problema con mi internet"
+        ),
+        cl.Starter(
+            label="Consultar Plan",
+            message="Quiero consultar mi plan actual"
+        ),
+        cl.Starter(
+            label="Diagnóstico rápido",
+            message="Tengo problemas con mi internet, ¿me ayudas?"
+        ),
+        cl.Starter(
+            label="Hablar con Técnico",
+            message="Quiero hablar con un técnico"
+        ),
+    ]
+
+
+
+@cl.on_chat_start
+async def start():
+    # Instanciar por cada sesión de usuario y guardarlo en el estado
+    cl.user_session.set("bot", Chatbot())
 
 # Helper seguro para enviar mensajes y botones compatible con distintas versiones de Chainlit
 async def safe_send(content: str | None = None, buttons: list | None = None):
-    """Try several APIs to send a message with optional buttons. Always fall back to plain text.
-
-    This prevents the handler from failing if the Chainlit API in the runtime does not
-    support Message(...).send() or Button objects in the same way.
-    """
-    # Prefer modern API: cl.Message(...).send()
     try:
         if buttons:
-            # try to build actions using cl.Button if available
-            actions = None
-            try:
-                actions = [cl.Button(label=b["label"], value=b["value"]) for b in buttons]
-            except Exception:
-                # try alternative import
-                try:
-                    from chainlit import Button as _Button
-                    actions = [_Button(label=b["label"], value=b["value"]) for b in buttons]
-                except Exception:
-                    actions = None
+            actions = [
+                cl.Action(
+                    name="menu_action",  
+                    payload={"value": b["value"]}, 
+                    label=b["label"]
+                ) for b in buttons
+            ]
+            await cl.Message(content=content, actions=actions).send()
+            return
+            
+        await cl.Message(content=content).send()
+        
+    except Exception as e:
+        print(f"[chainlit_app] no pudo enviar la respuesta: {e}", flush=True)
 
-            if actions is not None:
-                try:
-                    msg = cl.Message(content=content or "", actions=actions)
-                    send_m = getattr(msg, "send", None)
-                    if callable(send_m):
-                        await send_m()
-                        return
-                    # If msg object can't be sent, continue to fallback
-                except Exception:
-                    pass
-
-        # No buttons or buttons failed: try sending simple Message
-        try:
-            msg = cl.Message(content=content or "")
-            send_m = getattr(msg, "send", None)
-            if callable(send_m):
-                await send_m()
-                return
-        except Exception:
-            pass
-
-        # Fallback to top-level cl.send if available
-        try:
-            send_fn = getattr(cl, "send", None)
-            if callable(send_fn):
-                await send_fn(content or "")
-                return
-        except Exception:
-            pass
-
-    except Exception:
-        pass
-
-    # Ultimate fallback: print to server log (user will not see it) but avoid crashing
-    try:
-        print("[chainlit_app] safe_send fallback, content:", content, flush=True)
-    except Exception:
-        pass
 
 @cl.on_message
 async def main(message):
@@ -90,11 +75,16 @@ async def main(message):
         text = getattr(message, "content", None) or getattr(message, "text", None) or str(message)
 
     # Debug: imprimir en consola para verificar llegada del mensaje
+    # TODO borrar esto
     print(f"[chainlit_app] received: {text!r}", flush=True)
+    
+    # Recuperamos el bot de la sesión actual
+    bot = cl.user_session.get("bot")
 
     # Ejecutar la lógica del bot en un hilo y esperar el resultado
     try:
-        reply = await asyncio.to_thread(bot.ask, text)
+        async with cl.Step("Analizando...") as step:
+            reply = await asyncio.to_thread(bot.ask, text)
     except Exception as e:
         print(f"[chainlit_app] bot.ask raised: {e}", flush=True)
         # Usar safe_send en lugar de cl.send para ser compatible con distintas versiones de Chainlit
@@ -112,31 +102,38 @@ async def main(message):
                 print(f"[chainlit_app] fallo al intentar notificar al cliente sobre el error: {e}", flush=True)
         return
 
+
+    # TODO borrar esto
     # Debug: imprimir la respuesta antes de enviarla
     print(f"[chainlit_app] reply: {reply!r}", flush=True)
 
     # Enviar la respuesta como UN solo mensaje. Si parece un menú, adjuntar botones al mismo mensaje.
     try:
         reply_text = str(reply)
-        lower = reply_text.lower()
-        menu_keywords = ["elige una opción", "responde con el número", "selecciona una opción", "sugerencias rápidas", "paso 1/", "opción 1", "estado de mi ticket", "selecciona una opción:"]
         buttons = None
-        if any(k in lower for k in menu_keywords):
+        # FASE 2.2: Desacoplar botones del texto usando bot.current_flow
+        if bot.current_flow is None:
+            # Si el flujo es None, el usuario está libre (en el menú principal o terminó un proceso)
             buttons = [
                 {"label": "Estado de mi Ticket", "value": "1"},
                 {"label": "Reportar Falla", "value": "2"},
                 {"label": "Gestión de Cuenta", "value": "3"},
                 {"label": "Hablar con Técnico", "value": "4"},
             ]
-
-        # Intentar enviar usando safe_send (que maneja Message/actions o cl.send según la versión)
+        else:
+            # Si hay un flujo activo, el usuario está a la mitad de un proceso (ej. reportando falla)
+            buttons = [
+                {"label": "Menú Principal", "value": "menu"},
+                {"label": "Cancelar", "value": "cancelar"}
+            ]
+        # Intentar enviar usando safe_send
         try:
             await safe_send(reply_text, buttons=buttons)
             return
         except Exception as e:
             print(f"[chainlit_app] safe_send failed: {e}", flush=True)
 
-        # Fallbacks: intentar Message().send() luego cl.send
+        # Fallbacks...
         try:
             await cl.Message(content=reply_text).send()
             return
@@ -149,10 +146,28 @@ async def main(message):
         except Exception:
             pass
 
-        # Último recurso: imprimir en logs
         print("[chainlit_app] no pudo enviar la respuesta al cliente", reply_text, flush=True)
 
     except Exception as e:
         import traceback
         tb = traceback.format_exc()
         print(f"[chainlit_app] unexpected error preparing send:\n{tb}", flush=True)
+
+
+@cl.action_callback("menu_action")
+async def on_action(action: cl.Action):
+    # 1. Extraemos el número de la opción que el usuario clickeó (1, 2, 3 o 4)
+    valor_elegido = action.payload["value"]
+    
+    # 2. Opcional: Borramos los botones del chat para que se vea limpio
+    await action.remove()
+    
+    if valor_elegido in ["menu", "cancelar"]:
+        await cl.Message(content=f"👉 *Acción: {valor_elegido.capitalize()}*").send()
+    else:
+        await cl.Message(content=f"👉 *Seleccionaste la opción: {valor_elegido}*").send()
+
+    # 4. ¡MAGIA! En lugar de procesarlo aquí y perder los próximos botones,
+    # mandamos el valor del botón directamente a nuestra función `main` como si 
+    # el usuario lo hubiera tecleado en el chat.
+    await main(valor_elegido)
