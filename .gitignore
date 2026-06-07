@@ -8,3 +8,8 @@ env/
 # Archivos compilados de Python (por si acaso)
 __pycache__/
 *.pyc
+
+.flies
+.chainlit
+
+.json

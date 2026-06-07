@@ -54,7 +54,7 @@ class Chatbot:
         self.logger.info("Chatbot iniciado (modo fallback, sin LLM)")
 
         # Cargar datos locales (tickets, customers, comments) si existen en el repo raíz
-        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
         self.tickets_path = os.path.join(base_dir, "tickets.json")
         self.customers_path = os.path.join(base_dir, "customers.json")
         self.comments_path = os.path.join(base_dir, "comments.json")
@@ -298,7 +298,7 @@ class Chatbot:
 
         cmd = ["ollama", "run", model]
         try:
-            proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=timeout)
+            proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=timeout, shell=True)
             # TODO: Add loading indicator for long-running processes (optional, can be removed if not desired)
             if proc.returncode == 0:
                 return proc.stdout.strip()
@@ -434,7 +434,7 @@ class Chatbot:
         # Responder 'menu' localmente (no consultar KB)
         if text.lower() in ("menu", "help", "inicio"):
             return (
-                "Hola — ¿qué necesitas?\n"
+                "¿Qué necesitas?\n"
                 "1) Estado de ticket — 'ticket <id>'\n"
                 "2) Diagnóstico rápido — 'diagnosticar <descripción>'\n"
                 "3) Información de cuenta — 'cuenta <id_cliente>'\n"
@@ -556,11 +556,12 @@ class Chatbot:
         greeting_tokens = ("hola", "buenas", "buenos", "buenos días", "buenas tardes", "buenas noches", "hi", "hello")
         if low_text in greeting_tokens or any(low_text.startswith(t + " ") for t in greeting_tokens):
             return (
-                "Hola, soy ChatGNS, estoy para ayudarte! Elige una opción:\n"
+                "Que te gustaria hacer o revisar:\n"
                 "1) Estado de mi Ticket — consulta automática por id (usa 'ticket <id>').\n"
                 "2) Reportar Falla / Diagnóstico — diagnóstico automático y pasos (usa 'diagnosticar <descripción>').\n"
                 "3) Información de cuenta — ver segmento y acciones (usa 'cuenta <id_cliente>').\n"
-                "4) Pedir asistencia remota — solicita ayuda técnica (usa 'asistencia' o 'escalar')."
+                "4) Pedir asistencia remota — solicita ayuda técnica (usa 'asistencia' o 'escalar').\n\n"
+                "Elige una opción escribiendo el número o dando click en los botones de abajo."
             )
 
         # Detectar palabras clave de intermitencia y devolver un flujo de diagnóstico accionable
