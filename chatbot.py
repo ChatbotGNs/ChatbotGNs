@@ -188,10 +188,10 @@ class Chatbot:
                 # Acceso seguro al JSON según tu estructura
                 datos_api = servicios_res["data"]
                 
-                if isinstance(datos_api, dict) and "idPackage" in datos_api:
-                    primer_servicio = datos_api["idPackage"]
+                if isinstance(datos_api, dict) and "idCustomerPackage" in datos_api:
+                    primer_servicio = datos_api["idCustomerPackage"]
                 elif isinstance(datos_api, list) and len(datos_api) > 0:
-                    primer_servicio = datos_api[0].get("idPackage", datos_api[0])
+                    primer_servicio = datos_api[0].get("idCustomerPackage", datos_api[0])
                 else:
                     primer_servicio = datos_api
                 
@@ -274,9 +274,8 @@ class Chatbot:
             
             final_payload = self.current_flow["payload"]
             self.current_flow = None # Liberamos el bot de inmediato
-            
-            # TODO: Cambiarlo a la correcta después de test
-            return self._submit_new_ticket_local(final_payload)
+
+            return self._submit_new_ticket(final_payload)
 
         return "Error interno en los pasos del reporte."
 
