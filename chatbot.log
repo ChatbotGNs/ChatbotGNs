@@ -1049,3 +1049,15 @@ Considero que el problema es del tipo LENTITUDO / Baja Velocidad / Lag. Por lo t
 2026-06-07 18:51:09,384 INFO [OLLAMA RESPONSE] La IA respondió: Bienvenido a nuestro chat de asistencia técnica! Entiendo que estás experimentando un problema con tu internet. Por favor, indícame qué color ves en la luz del módem: ¿Es verde, azul o amarillo?
 2026-06-07 18:53:36,234 INFO [MENSAJE USUARIO] Texto recibido: cancelar
 2026-06-07 18:53:36,235 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: auto_diagnostic
+2026-06-07 19:26:33,579 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 19:26:36,608 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 19:26:48,651 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 19:27:18,612 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 19:27:18,717 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 19:27:19,617 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 19:27:31,527 INFO [MENSAJE USUARIO] Texto recibido: Quiero hablar con un técnico
+2026-06-07 19:27:39,413 INFO [MENSAJE USUARIO] Texto recibido: no tengo algun problema
+2026-06-07 19:27:39,414 INFO [ENRUTADOR] Action: contact_technician | Step: ask_problem | Text: no tengo algun problema
+2026-06-07 19:27:47,618 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 19:27:47,619 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: contact_technician
+2026-06-07 19:27:50,760 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
