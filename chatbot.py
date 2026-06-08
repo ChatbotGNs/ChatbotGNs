@@ -443,6 +443,7 @@ class Chatbot:
             return "Entendido. Si el problema continúa, te sugiero presionar la Opción 2 para levantar un ticket de falla formal."
 
         if step == "ask_problem":
+            print("Help")
             # 1. Guardamos el problema inicial
             self.current_flow["problem"] = text
             self.current_flow["step"] = "troubleshooting"
@@ -457,6 +458,7 @@ class Chatbot:
             return respuesta_ai
 
         elif step == "troubleshooting":
+            print("Help")
             problema_original = self.current_flow["problem"]
             historial_previo = self.current_flow["history"]
             
@@ -698,7 +700,7 @@ class Chatbot:
                 return "Has elegido Consultar Plan y Saldo.\n\nPor favor, ingresa tu **ID de Cliente**:"
 
             elif low_text in auto_diagnostic_keywords.keywords:
-                self.current_flow = {"action": "auto_diagnostic"}
+                self.current_flow = {"action": "auto_diagnostic", "step": "ask_problem"}
                 return "Has elegido Auto-Diagnóstico / Soporte Técnico.\n\nPor favor, **descríbeme con detalle cuál es el problema** que tienes con tu servicio:"
 
             elif low_text in contact_technician_keywords.keywords:
