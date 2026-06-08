@@ -6,7 +6,7 @@ Soy tu asistente virtual de soporte técnico. Estoy aquí para ayudarte a resolv
 Para interactuar conmigo, puedes usar el cuadro de texto de abajo y escribirme de forma natural o usar mis opciones rápidas. Prueba escribiendo cosas como:
 - **"Hola"** o **"Menú"** para ver las opciones principales.
 - **"Tengo un problema con mi internet"** para iniciar un diagnóstico automático con Inteligencia Artificial.
-- **"Estado de mi ticket"** para consultar un folio existente.
+- **"Quiero consultar mi plan actual"** para consultar informacion de tu plan actual.
 
 ---
 
@@ -22,4 +22,4 @@ Si en algún momento sientes que nos perdimos o quieres cambiar de tema, puedes 
 3. **Ten tus datos a la mano:** Para levantar reportes formales, siempre te pediré tu **ID de Cliente**. Si no lo tienes, búscalo en tu última factura.
 
 ---
-*⚠️ **Nota:** Si tu problema es urgente o detecto que mis pasos de diagnóstico no están funcionando, yo mismo me encargaré de transferirte con un técnico humano.*
+* **Nota:** Si tu problema es urgente o detecto que mis pasos de diagnóstico no están funcionando, yo mismo me encargaré de notificar a un técnico humano.*

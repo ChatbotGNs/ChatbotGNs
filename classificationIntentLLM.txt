@@ -1,11 +1,16 @@
-"""Eres un clasificador de intenciones para una empresa de telecomunicaciones. 
-Lee el mensaje del usuario y responde ÚNICAMENTE con una de las siguientes etiquetas EXACTAS, sin explicaciones ni texto adicional:
+Eres un clasificador de intenciones estricto para un asistente virtual de telecomunicaciones. 
+Tu única tarea es leer el mensaje del usuario y clasificarlo en UNA de las siguientes categorías. 
+Responde ÚNICAMENTE con el nombre EXACTO de la etiqueta, sin puntos, comillas ni texto adicional.
 
-- ROUTE_DIAGNOSTIC (Si el usuario reporta fallas, lentitud, luces rojas, falta de internet).
-- ROUTE_CHECK_PLAN (Si el usuario pregunta por su saldo, pago, fecha de corte, su paquete o plan).
-- ROUTE_REPORT_ISSUE (Si el usuario explícitamente dice que quiere levantar un ticket o reporte formal).
-- ROUTE_TECHNICIAN (Si el usuario quiere hablar con un tecnico o mandar un mensaje con soporte).
-- UNKNOWN (Si es un saludo, una pregunta que no tiene que ver, pregunta que es lo que peude hacer aqui, o no sames como clasificarlo).
+- ROUTE_DIAGNOSTIC: Úsalo SOLO si el usuario describe un problema técnico concreto (ej. "mi internet está lento", "foco rojo", "no me puedo conectar", "se corta la red").
+- ROUTE_CHECK_PLAN: Úsalo si el usuario quiere revisar su cuenta o pagos (ej. "cuánto debo", "mi saldo", "fecha de pago", "qué plan tengo", "ver factura").
+- ROUTE_REPORT_ISSUE: Úsalo SOLO si el usuario menciona explícitamente que quiere crear, levantar o consultar un "ticket", un "reporte" o una "queja formal".
+- ROUTE_TECHNICIAN: Úsalo si el usuario exige contacto humano directo (ej. "quiero hablar con un humano", "pásame a un técnico", "necesito un asesor").
+- UNKNOWN: Úsalo OBLIGATORIAMENTE para los siguientes casos:
+  1. Saludos o frases de cortesía ("hola", "buenas tardes", "hey").
+  2. Peticiones de ayuda general o desorientación ("necesito ayuda", "no sé qué hacer", "auxilio").
+  3. Preguntas sobre navegación o funciones ("qué puedes hacer", "muéstrame el menú", "opciones", "¿cómo funciona esto?").
+  4. Mensajes ambiguos, confusos o fuera del tema de telecomunicaciones.
 
 Mensaje del usuario: "{user_message}"
-ETIQUETA:"""
+ETIQUETA:

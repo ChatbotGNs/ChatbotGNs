@@ -948,3 +948,104 @@ Por favor, indique el paso número 1 que deseamos seguir. ¿Ha reiniciado los eq
 2026-06-07 16:00:20,891 INFO [MENSAJE USUARIO] Texto recibido: hola que peudo hacer aqui
 2026-06-07 16:00:24,123 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_CHECK_PLAN
 2026-06-07 16:00:24,124 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_CHECK_PLAN para el texto: 'hola que peudo hacer aqui'
+2026-06-07 17:57:11,641 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 17:57:14,105 INFO [MENSAJE USUARIO] Texto recibido: hola
+2026-06-07 17:57:19,077 INFO [MENSAJE USUARIO] Texto recibido: 1
+2026-06-07 17:57:24,779 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 17:57:24,779 INFO [ENRUTADOR] Action: report_issue | Step: get_customer_id | Text: 170
+2026-06-07 17:57:24,779 INFO Consultando servicios en la API para el cliente: 170...
+2026-06-07 17:57:24,784 ERROR [CRASH EN GET_CUSTOMER_ID] Error: 'Chatbot' object has no attribute 'partner_key'
+Traceback (most recent call last):
+  File "C:\Users\edgar\Documents\VsCode\ChatbotGNs\chatbot.py", line 173, in _handle_report_issue_flow
+    servicios_res = self._get_services_by_customer(customer_id)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\edgar\Documents\VsCode\ChatbotGNs\chatbot.py", line 342, in _get_services_by_customer
+    headers = {"Authorization": f"Bearer {self.partner_key}"} if self.partner_key else {}
+                                                                 ^^^^^^^^^^^^^^^^
+AttributeError: 'Chatbot' object has no attribute 'partner_key'
+
+2026-06-07 17:57:43,426 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 17:57:43,432 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 17:57:44,635 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 17:57:52,515 INFO [MENSAJE USUARIO] Texto recibido: hola
+2026-06-07 17:57:53,666 INFO [MENSAJE USUARIO] Texto recibido: 1
+2026-06-07 17:57:55,840 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 17:57:55,840 INFO [ENRUTADOR] Action: report_issue | Step: get_customer_id | Text: 170
+2026-06-07 17:57:55,840 INFO Consultando servicios en la API para el cliente: 170...
+2026-06-07 17:57:55,841 ERROR [CRASH EN GET_CUSTOMER_ID] Error: 'Chatbot' object has no attribute 'partner_key'
+Traceback (most recent call last):
+  File "C:\Users\edgar\Documents\VsCode\ChatbotGNs\chatbot.py", line 173, in _handle_report_issue_flow
+    servicios_res = self._get_services_by_customer(customer_id)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\edgar\Documents\VsCode\ChatbotGNs\chatbot.py", line 342, in _get_services_by_customer
+    headers = {"Authorization": f"Bearer {self.partner_key}"} if self.partner_key else {}
+                                                                 ^^^^^^^^^^^^^^^^
+AttributeError: 'Chatbot' object has no attribute 'partner_key'
+
+2026-06-07 17:59:13,639 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 17:59:13,650 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 17:59:13,652 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 17:59:28,048 INFO [MENSAJE USUARIO] Texto recibido: holla
+2026-06-07 17:59:29,306 INFO [MENSAJE USUARIO] Texto recibido: 1
+2026-06-07 17:59:31,482 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 17:59:31,483 INFO [ENRUTADOR] Action: report_issue | Step: get_customer_id | Text: 170
+2026-06-07 17:59:31,483 INFO Consultando servicios en la API para el cliente: 170...
+2026-06-07 18:02:19,636 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:02:19,645 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:02:19,647 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:02:39,814 INFO [MENSAJE USUARIO] Texto recibido: hola
+2026-06-07 18:02:43,632 INFO [MENSAJE USUARIO] Texto recibido: 1
+2026-06-07 18:02:50,708 INFO [MENSAJE USUARIO] Texto recibido: quiero un autodiagnostico, ayudameç
+2026-06-07 18:02:50,708 INFO [ENRUTADOR] Action: report_issue | Step: get_customer_id | Text: quiero un autodiagnostico, ayudameç
+2026-06-07 18:03:02,312 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 18:03:02,312 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: report_issue
+2026-06-07 18:03:09,408 INFO [MENSAJE USUARIO] Texto recibido: quiero un autodiagnostico, ayudame
+2026-06-07 18:03:28,279 INFO [OLLAMA RESPONSE] La IA respondió: ROUTE_DIAGNOSTIC
+2026-06-07 18:03:28,279 INFO [ENRUTAMIENTO LLM] Intención detectada: ROUTE_DIAGNOSTIC para el texto: 'quiero un autodiagnostico, ayudame'
+2026-06-07 18:03:37,578 INFO [OLLAMA RESPONSE] La IA respondió: Bienvenido al mundo de los asistentes técnicos virtuales! 🤖 I'll be happy to help you diagnose the issue. Could you please provide more information about the problem you're experiencing? 🤔 What does the client say when they try to connect to the internet? And what happens when they try to access the internet? 🌐
+2026-06-07 18:04:41,280 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 18:04:41,280 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: auto_diagnostic
+2026-06-07 18:06:48,622 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:06:58,627 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:07:04,658 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:07:11,631 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:07:18,624 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:07:20,648 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:07:24,632 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:07:46,619 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:07:58,630 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:08:03,634 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:08:29,635 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:08:47,624 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:08:56,646 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:09:04,638 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:09:13,628 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:09:21,628 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:09:26,632 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:10:07,637 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:10:10,641 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:15:55,648 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:15:57,622 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:33:28,212 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:33:28,614 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:33:29,949 INFO [MENSAJE USUARIO] Texto recibido: Tengo problemas con mi internet, ¿me ayudas?
+2026-06-07 18:33:40,922 INFO [MENSAJE USUARIO] Texto recibido: tengo el problema de que no se conecta rapido mi internet
+2026-06-07 18:33:40,923 INFO [ENRUTADOR] Action: auto_diagnostic | Step: ask_problem | Text: tengo el problema de que no se conecta rapido mi internet
+2026-06-07 18:33:53,446 INFO [OLLAMA RESPONSE] La IA respondió: Bienvenido al diagnosticóptico virtual! 🤖
+
+Considero que el problema es del tipo LENTITUDO / Baja Velocidad / Lag. Por lo tanto, mi primera pregunta será: ¿Has ejecutado algún test de velocidad en un sitio web como fast.com o speedtest.net? 🚀
+2026-06-07 18:49:39,801 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:49:41,882 INFO [MENSAJE USUARIO] Texto recibido: hola
+2026-06-07 18:49:43,489 INFO [MENSAJE USUARIO] Texto recibido: 1
+2026-06-07 18:49:45,275 INFO [MENSAJE USUARIO] Texto recibido: 2
+2026-06-07 18:49:49,506 INFO [MENSAJE USUARIO] Texto recibido: 170
+2026-06-07 18:49:49,506 INFO [ENRUTADOR] Action: check_plan | Step: get_customer_info | Text: 170
+2026-06-07 18:49:50,170 INFO [API CALL] Consultando servicios para el cliente ID: 170
+2026-06-07 18:50:46,442 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:50:46,741 INFO Chatbot iniciado correctamente (Ollama LLM Activado)
+2026-06-07 18:50:51,360 INFO [MENSAJE USUARIO] Texto recibido: Tengo problemas con mi internet, ¿me ayudas?
+2026-06-07 18:50:58,658 INFO [MENSAJE USUARIO] Texto recibido: jiji
+2026-06-07 18:50:58,658 INFO [ENRUTADOR] Action: auto_diagnostic | Step: ask_problem | Text: jiji
+2026-06-07 18:51:09,384 INFO [OLLAMA RESPONSE] La IA respondió: Bienvenido a nuestro chat de asistencia técnica! Entiendo que estás experimentando un problema con tu internet. Por favor, indícame qué color ves en la luz del módem: ¿Es verde, azul o amarillo?
+2026-06-07 18:53:36,234 INFO [MENSAJE USUARIO] Texto recibido: cancelar
+2026-06-07 18:53:36,235 WARNING [FLUJO CANCELADO] El usuario canceló el flujo: auto_diagnostic

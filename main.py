@@ -1,6 +1,5 @@
 from chatbot import Chatbot
 
-
 def main():
     bot = Chatbot()
     print("Chatbot LangChain — escribe 'salir' para terminar")
