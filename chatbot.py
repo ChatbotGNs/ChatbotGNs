@@ -620,8 +620,7 @@ class Chatbot:
             else:
                 mensaje = "Hubo un problema al intentar contactar al técnico. Por favor, intenta usar la opción de 'Reportar Falla' en el menú principal."
             
-            mensaje += "\n\n---\n*¿Qué te gustaría hacer ahora?*\n\n"
-            mensaje += self._show_main_menu()
+            mensaje += self._show_menu_action()
             
             return mensaje
     
