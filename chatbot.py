@@ -443,7 +443,6 @@ class Chatbot:
             return "Entendido. Si el problema continúa, te sugiero presionar la Opción 2 para levantar un ticket de falla formal."
 
         if step == "ask_problem":
-            print("Help")
             # 1. Guardamos el problema inicial
             self.current_flow["problem"] = text
             self.current_flow["step"] = "troubleshooting"
@@ -458,7 +457,6 @@ class Chatbot:
             return respuesta_ai
 
         elif step == "troubleshooting":
-            print("Help")
             problema_original = self.current_flow["problem"]
             historial_previo = self.current_flow["history"]
             
