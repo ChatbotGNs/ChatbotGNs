@@ -22,16 +22,23 @@ class Chatbot:
         bot = Chatbot()
         bot.ask("Hola")
     """
-    #TODO: revisar pq esta el str en el gpt turbo, si usamos el ollama
-    def __init__(self, temperature: float = 0.2, model: str = "gpt-3.5-turbo"):
-        load_dotenv()
-        api_key = os.getenv("OPENAI_API_KEY")
 
+    def __init__(self, temperature: float = 0.2, model: str = "lama2:7b-chat"):
+        load_dotenv()
+        
+        #Si se quiere usar un Chat GPT o una IA ya existente con una llave
+        #api_key = os.getenv("OPENAI_API_KEY")
+        
+        self.model = model 
+        # Sirve para cambiar....
+        self.temperature = temperature
+        
         # Partner API configuration (set in .env)
         self.partner_base = os.getenv("PARTNER_API_BASE")
-        self.partner_key = os.getenv("PARTNER_API_KEY")
         self.partner_user = os.getenv("PARTNER_API_USER")
+        self.partner_key = os.getenv("PARTNER_API_KEY")
         self.partner_password = os.getenv("PARTNER_API_PASSWORD")
+        
         if self.partner_user and self.partner_password:
             self.auth = HTTPBasicAuth(self.partner_user, self.partner_password)
         else:
@@ -42,63 +49,18 @@ class Chatbot:
         self.logger = logging.getLogger("chatbot")
         if not self.logger.handlers:
             handler = logging.FileHandler(log_path, encoding="utf-8")
+            console_handler = logging.StreamHandler()
             formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
             handler.setFormatter(formatter)
+            console_handler.setFormatter(formatter)
+
             self.logger.addHandler(handler)
+            self.logger.addHandler(console_handler)
             self.logger.setLevel(logging.INFO)
 
         self.logger.info("Chatbot iniciado correctamente (Ollama LLM Activado)")
 
-        #TODO: BORRAR AL FINALIZAR TODOOOOOOOOOOOOOOOO  
-        # Cargar datos locales (tickets, customers, comments) si existen en el repo raíz
-        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
-        self.tickets_path = os.path.join(base_dir, "tickets.json")
-        self.customers_path = os.path.join(base_dir, "customers.json")
-        self.comments_path = os.path.join(base_dir, "comments.json")
-        self.categories_path = os.path.join(base_dir, "categories.json")
-
-        self.tickets = []
-        self.customers = []
-        self.comments = []
-        self.categories = []
-        self._load_local_data()
-
         self.current_flow = None
-
-    #TODO: BORRAR AL FINALIZAR TODOOOOOOOOOOOOOOOO  
-    def _load_local_data(self):
-        def _load(path):
-            try:
-                with open(path, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception as e:
-                # Registrar detalle del error para facilitar depuración si el JSON es inválido o no se puede leer
-                try:
-                    self.logger.error(json.dumps({"type": "local_data_load_error", "path": path, "error": str(e)} , ensure_ascii=False))
-                except Exception:
-                    pass
-                return []
-
-        self.tickets = _load(self.tickets_path)
-        self.customers = _load(self.customers_path)
-        # Si no se cargaron customers y existe el archivo en otra ubicación posible, intentar la ruta relativa al módulo
-        if not self.customers:
-            alt_path = os.path.join(os.path.dirname(__file__), "..", "customers.json")
-            alt_path = os.path.abspath(alt_path)
-            if os.path.exists(alt_path) and alt_path != self.customers_path:
-                try:
-                    with open(alt_path, "r", encoding="utf-8") as f:
-                        self.customers = json.load(f)
-                    self.logger.info(json.dumps({"type": "local_data_alt_load", "path": alt_path, "customers_loaded": len(self.customers)}, ensure_ascii=False))
-                except Exception as e:
-                    try:
-                        self.logger.error(json.dumps({"type": "local_data_alt_load_error", "path": alt_path, "error": str(e)}, ensure_ascii=False))
-                    except Exception:
-                        pass
-
-        self.comments = _load(self.comments_path)
-        self.categories = _load(self.categories_path)
-        self.logger.info(json.dumps({"type": "local_data_load", "tickets": len(self.tickets), "customers": len(self.customers), "comments": len(self.comments), "categories": len(self.categories)}, ensure_ascii=False))
 
 
     # Actual function
@@ -193,6 +155,9 @@ class Chatbot:
         else:
             mensaje += "No se pudo consultar el saldo pendiente en este momento.\n"
         
+        mensaje += "\n---\n✅ *Consulta exitosa. ¿En qué más te puedo ayudar hoy? Escoge una de las opciones o platicanos tu problema*\n\n"
+
+        mensaje += self._show_menu_action()
         return mensaje
     
     def _handle_report_issue_flow(self, text: str, step: str) -> str:
@@ -365,14 +330,19 @@ class Chatbot:
                 # Éxito: Puedes extraer el ID del ticket de la respuesta si tu API lo devuelve
                 data = response.json()
                 ticket_id = data.get("idTicket", "desconocido")
-                return f"**¡Falla reportada con éxito!**\nTu reporte ha sido registrado con el número de ticket: **{ticket_id}**.\nUn técnico revisará tu caso pronto. \n Tambien podemos intentar diagnosticar lo que esta fallando para solucionarlo"
+                mensaje = f" **¡Falla reportada con éxito!**\nTu reporte ha sido registrado con el número de ticket: **{ticket_id}**.\nUn técnico revisará tu caso pronto.\n\nTambién podemos intentar diagnosticar lo que está fallando para solucionarlo."
             else:
                 self.logger.error(f"Error creando ticket. HTTP {response.status_code}: {response.text}")
-                return f"Recibimos tus datos, pero hubo un problema al guardarlos en el sistem. Intenta de nuevo más tarde o comunicate directamente con un Tecnico."
-                
+                mensaje = "⚠️ Recibimos tus datos, pero hubo un problema al guardarlos en el sistema. Intenta de nuevo más tarde o comunícate directamente con un Técnico."                
+        
         except Exception as e:
             self.logger.error(f"Excepción al crear ticket: {e}")
-            return "El sistema no está disponible en este momento. Intenta más tarde."
+            mensaje = "⚠️ El sistema no está disponible en este momento. Intenta más tarde."
+
+        mensaje += self._show_menu_action() 
+        
+        return mensaje
+    
 
     def _get_services_by_customer(self, customer_id: str) -> dict:
         """Llama al endpoint GET Obtener servicios por ID del cliente."""
@@ -488,11 +458,24 @@ class Chatbot:
                 self.current_flow = None # Limpiamos el flujo de diagnóstico
                 
                 # Aquí lo mandamos mágicamente al flujo de "Reportar Falla" para pedirle sus datos
+                # UPDATE: Aqui se puede crear un ticket automatico en el futuro
                 return (
                     "Parece que los pasos básicos no resolvieron el problema. "
                     "Vamos a transferir este caso a nuestros ingenieros.\n\n"
                     "Para levantar tu reporte oficial, por favor escribe el número **2** (o selecciona 'Reportar Falla' en el menú)."
                 )
+            # ==========================================
+            # EL NUEVO INTERCEPTOR DE ÉXITO: ¿El problema se solucionó?
+            # ==========================================
+            if "ACCION_RESUELTO" in respuesta_ai or "accion_resuelto" in respuesta_ai.lower():
+                self.current_flow = None # ¡Liberamos al usuario del flujo!
+                
+                # Le damos un mensaje bonito de despedida y le mostramos el menú
+                mensaje = "¡Qué excelente noticia! Me da mucho gusto haber podido solucionar tu problema con el servicio.\n\n"
+                mensaje += "*¿En qué más te puedo ayudar hoy?*\n\n"
+                mensaje += self._show_menu_action()
+
+                return mensaje
             
             # Si la IA sigue diagnosticando, guardamos la plática (guardamos el text original del usuario, no el enriquecido)
             self.current_flow["history"] += f"Usuario: {text}\nAsistente: {respuesta_ai}\n"
@@ -532,7 +515,7 @@ class Chatbot:
             self.logger.error(f"Error ejecutando IA: {e}")
             return "Ocurrió un error inesperado al consultar la IA."
         
-    # TODO: poner las cosas correctas 
+
     def _classify_intent_with_llm(self, text: str) -> str:
         """
         Usa el LLM para entender qué quiere hacer el usuario y devuelve una etiqueta estricta.
@@ -568,31 +551,80 @@ class Chatbot:
         """
         Flujo rápido para capturar datos y notificar a un técnico humano.
         """
-        # TODO: preguntar el problema para mandarlo en el wats o correo 
+
+        # Asegurarnos de que existe el diccionario payload para no tener errores
+        if "payload" not in self.current_flow:
+            self.current_flow["payload"] = {}
+
+        # PASO 1: Guardamos el problema y preguntamos quién es
         if step == "ask_problem":
             self.current_flow["payload"]["problem"] = text.strip()
+            self.current_flow["step"] = "ask_name"
+            return "Entendido. Para agilizar el soporte, ¿me podrías proporcionar tu **Nombre completo** o **ID de Cliente**?"
+        # PASO 2: Guardamos la identidad y preguntamos el medio de contacto
+        elif step == "ask_name":
+            self.current_flow["payload"]["user_identity"] = text.strip()
             self.current_flow["step"] = "ask_contact"
-            return "Para que un técnico se comunique contigo de inmediato, por favor **ingresa tu número de teléfono o correo electrónico**:"
-
+            return "Gracias. Finalmente, para que el técnico te contacte de inmediato, por favor **ingresa tu número de teléfono o correo electrónico**:"
+        
+        # PASO 3: Guardamos el contacto y enviamos el reporte
         elif step == "ask_contact":
             contacto = text.strip()
             problema = self.current_flow["payload"].get("problem", "No especificado")
+            identidad = self.current_flow["payload"].get("user_identity", "No especificado")
+
+            es_correo = re.match(r"[^@]+@[^@]+\.[^@]+", contacto)
+            tipo_contacto = "Correo" if es_correo else "Teléfono"
             
-            # Llamamos a la función que envía el WhatsApp/Correo
-            # TODO: cambiar el metodo depende de la preferencia
-            exito = self._contact_technician(user_contact=contacto, 
-                                             problem_description=problema, 
-                                             method="whatsapp")
+            # Combinamos todo en un texto estructurado
+            descripcion_completa = (
+                f"SOLICITUD DE CONTACTO \n"
+                f"Cliente/ID: {identidad}\n"
+                f"{tipo_contacto} de contacto: {contacto}\n"
+                f"Problema reportado: {problema}"
+            )
+
+            # 2. LEEMOS LA PREFERENCIA DEL ADMINISTRADOR DESDE EL .ENV
+            metodo_preferido = os.getenv("ESCALATION_METHOD", "ticket").lower()
             
-            # Limpiamos el flujo porque ya terminamos
+            exito = False
+            # 3. ENRUTAMOS SEGÚN LA CONVENIENCIA DEL TÉCNICO
+            if metodo_preferido == "ticket":
+                # Armamos el payload para tu función de tickets
+                payload_ticket = {
+                    "problem": descripcion_completa,
+                    "contact_name": identidad,
+                    "phone_number": contacto if not es_correo else "N/A",
+                    "idCategory": 1, # O el ID que represente "URGENTE / CONTACTO HUMANO" en tu base
+                    # ... otros campos requeridos por tu API ...
+                }
+                # Usamos tu función existente de tickets (la local o la de API)
+                #TODO: Cambiar a la funcion real
+                mensaje_resultado = self._submit_new_ticket_local(payload_ticket)
+                # Como tu función ya devuelve un texto de éxito, lo podemos usar o sobreescribir
+                exito = True if "éxito" in mensaje_resultado.lower() else False
+
+            elif metodo_preferido in ["whatsapp", "email"]:
+                # Usamos tu función actual, pasándole el método elegido en el .env
+                exito = self._contact_technician(
+                    user_contact=contacto, 
+                    problem_description=descripcion_completa, 
+                    method=metodo_preferido
+                )
+            
+            # Limpiamos el flujo
             self.current_flow = None
             
+            # 4. MENSAJE FINAL (Le agregamos tu menú para que no se quede atascado)
             if exito:
-                return "**¡Listo!** Le he enviado una notificación a nuestro equipo técnico. Se pondrán en contacto contigo en los próximos minutos a través del dato que nos proporcionaste."
+                mensaje = "**¡Listo!** He notificado a nuestro equipo técnico. Un asesor revisará tu caso y te contactará."
             else:
-                return "Hubo un problema al intentar contactar al técnico. Por favor, intenta usar la opción de 'Reportar Falla' en el menú principal."
-                
-        return "Flujo terminado con errores."
+                mensaje = "Hubo un problema al intentar contactar al técnico. Por favor, intenta usar la opción de 'Reportar Falla' en el menú principal."
+            
+            mensaje += "\n\n---\n*¿Qué te gustaría hacer ahora?*\n\n"
+            mensaje += self._show_main_menu()
+            
+            return mensaje
     
     def _contact_technician(self, user_contact: str, problem_description: str, method: str = "whatsapp") -> bool:
         """
@@ -631,7 +663,7 @@ class Chatbot:
         Devuelve el texto del menú principal.
         """
         return (
-            "¡Hola! ¿Qué te gustaría hacer o revisar?\n\n"
+            "¿Qué te gustaría hacer o revisar?\n\n"
             "Selecciona una opción o escríbela:\n"
             "1) Reportar Falla\n"
             "2) Consultar Plan\n"
@@ -685,7 +717,7 @@ class Chatbot:
             return "Has elegido Consultar Plan y Saldo.\n\nPor favor, ingresa tu **ID de Cliente**:"
 
         if low_text in palabras_opcion3:
-            self.current_flow = {"action": "auto_diagnostic"}
+            self.current_flow = {"action": "auto_diagnostic", "step": "ask_problem"}
             return "Has elegido Auto-Diagnóstico / Soporte Técnico.\n\nPor favor, **descríbeme con detalle cuál es el problema** que tienes con tu servicio:"
 
         if low_text in palabras_opcion4:

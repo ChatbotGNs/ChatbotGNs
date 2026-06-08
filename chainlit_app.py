@@ -75,7 +75,6 @@ async def main(message):
         text = getattr(message, "content", None) or getattr(message, "text", None) or str(message)
 
     # Debug: imprimir en consola para verificar llegada del mensaje
-    # TODO borrar esto
     print(f"[chainlit_app] received: {text!r}", flush=True)
     
     # Recuperamos el bot de la sesión actual
@@ -83,8 +82,15 @@ async def main(message):
 
     # Ejecutar la lógica del bot en un hilo y esperar el resultado
     try:
-        async with cl.Step("Analizando...") as step:
-            reply = await asyncio.to_thread(bot.ask, text)
+       # 1. Creamos el indicador de carga y lo mostramos
+        step = cl.Step(name="Analizando...")
+        await step.send()
+        
+        # 2. El bot hace su trabajo
+        reply = await asyncio.to_thread(bot.ask, text)
+        
+        # 3. ¡Desaparecemos el indicador de la interfaz!
+        await step.remove()
     except Exception as e:
         print(f"[chainlit_app] bot.ask raised: {e}", flush=True)
         # Usar safe_send en lugar de cl.send para ser compatible con distintas versiones de Chainlit
@@ -103,7 +109,6 @@ async def main(message):
         return
 
 
-    # TODO borrar esto
     # Debug: imprimir la respuesta antes de enviarla
     print(f"[chainlit_app] reply: {reply!r}", flush=True)
 
