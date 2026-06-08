@@ -648,11 +648,19 @@ class Chatbot:
         self.logger.info(f"[MENSAJE USUARIO] Texto recibido: {text}")
         low_text = text.lower()
 
+        class MenuOption:
+            def __init__(self, buttonCall, keywords):
+                self.buttonCall = buttonCall
+                self.keywords = keywords
+
+        buttonCallLeadingCharacters = "-:-:-/-!"
+
         # Diccionarios de palabras exactas (Ruta Rápida)
-        palabras_opcion1 = ["1", "opción 1", "reportar falla", "reportar", "tengo un problema con mi internet"] 
-        palabras_opcion2 = ["2", "opción 2", "gestión de cuenta", "consultar plan", "quiero consultar mi plan actual"]
-        palabras_opcion3 = ["3", "opción 3", "soporte", "diagnóstico rápido", "diagnóstico", "tengo problemas con mi internet, ¿me ayudas?"]
-        palabras_opcion4 = ["4", "opción 3", "humano", "tecnico", "mensaje", "quiero hablar con un técnico"]
+        report_issue_keywords = MenuOption(buttonCallLeadingCharacters + "1", ["1", "opción 1", "reportar falla", "reportar", "tengo un problema con mi internet"])
+        check_plan_keywords = MenuOption(buttonCallLeadingCharacters + "2", ["2", "opción 2", "gestión de cuenta", "consultar plan", "quiero consultar mi plan actual"])
+        auto_diagnostic_keywords = MenuOption(buttonCallLeadingCharacters + "3", ["3", "opción 3", "soporte", "diagnóstico rápido", "diagnóstico", "tengo problemas con mi internet, ¿me ayudas?"])
+        contact_technician_keywords = MenuOption(buttonCallLeadingCharacters + "4", ["4", "opción 3", "humano", "tecnico", "mensaje", "quiero hablar con un técnico"])
+        all_menu_option_keywords = [report_issue_keywords, check_plan_keywords, auto_diagnostic_keywords, contact_technician_keywords]
         menu_keywords = ["cancelar", "salir", "menu", "menú", "regresar", "inicio", "que puedo hacer"]
 
         # ==========================================
@@ -675,22 +683,27 @@ class Chatbot:
                 )
             else:
                 return self._show_menu_action()
+        
+        # If: 
+        # a) The user is currently in the menu section, and an option keyword / option button call string is sent.
+        # b) The user is NOT in the menu section, but the provided text matches the specific string type sent by a button.
+        if ((self.current_flow is None) or (self.current_flow is not None and any(low_text == option.buttonCall for option in all_menu_option_keywords))):
+            low_text = low_text.replace(buttonCallLeadingCharacters, '')
+            if low_text in report_issue_keywords.keywords:
+                self.current_flow = {"action": "report_issue", "step": "get_customer_id"}
+                return "Has elegido Reportar Falla.\n\nPara empezar, por favor ingresa tu **ID de Cliente**:"
 
-        if low_text in palabras_opcion1:
-            self.current_flow = {"action": "report_issue", "step": "get_customer_id"}
-            return "Has elegido Reportar Falla.\n\nPara empezar, por favor ingresa tu **ID de Cliente**:"
+            elif low_text in check_plan_keywords.keywords:
+                self.current_flow = {"action": "check_plan", "step": "get_customer_info", "payload": {}}
+                return "Has elegido Consultar Plan y Saldo.\n\nPor favor, ingresa tu **ID de Cliente**:"
 
-        if low_text in palabras_opcion2:
-            self.current_flow = {"action": "check_plan", "step": "get_customer_info", "payload": {}}
-            return "Has elegido Consultar Plan y Saldo.\n\nPor favor, ingresa tu **ID de Cliente**:"
+            elif low_text in auto_diagnostic_keywords.keywords:
+                self.current_flow = {"action": "auto_diagnostic"}
+                return "Has elegido Auto-Diagnóstico / Soporte Técnico.\n\nPor favor, **descríbeme con detalle cuál es el problema** que tienes con tu servicio:"
 
-        if low_text in palabras_opcion3:
-            self.current_flow = {"action": "auto_diagnostic"}
-            return "Has elegido Auto-Diagnóstico / Soporte Técnico.\n\nPor favor, **descríbeme con detalle cuál es el problema** que tienes con tu servicio:"
-
-        if low_text in palabras_opcion4:
-            self.current_flow = {"action": "contact_technician", "step": "ask_problem", "history": ""}
-            return "Has elegido Diagnóstico Rápido / Soporte Técnico.\n\nPor favor, **descríbeme con detalle cuál es el problema** que tienes con tu servicio:"
+            elif low_text in contact_technician_keywords.keywords:
+                self.current_flow = {"action": "contact_technician", "step": "ask_problem", "history": ""}
+                return "Has elegido Diagnóstico Rápido / Soporte Técnico.\n\nPor favor, **descríbeme con detalle cuál es el problema** que tienes con tu servicio:"
 
         # ==========================================
         # 2. CONTINUAR FLUJO ACTIVO
